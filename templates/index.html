@@ -26,10 +26,10 @@
     </div>
     <div class="event-info">
       <h3> Место проведения</h3>
-      <p>Банкетный зал "Аманд Холл" (Soft)<br>Свердловская наб., 64, Санкт-Петербург</p>
+      <p>Банкетный зал "Лея"<br>Свердловская наб., 62, Санкт-Петербург</p>
       <div class="map-container">
         <script type="text/javascript" charset="utf-8" async
-          src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A83c080a8a7eebb7d3ad63f79b82e2027908f1c8ddbf5444f8c803bdd86b92266&amp;width=100%25&amp;height=300&amp;lang=ru_RU&amp;scroll=true">
+          src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A317e1229c0303a240f835b1636f362c2167f79794723a2f41b3fedb117de73ea&amp;width=566&amp;height=400&amp;lang=ru_RU&amp;scroll=true">
         </script>
       </div>
     </div>
@@ -95,98 +95,113 @@
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="radio" name="main_dish" value="okun">
-            <span class="dish-title">Морской окунь 🐟</span>
+            <input type="radio" name="main_dish" value="chicken_mushroom" required>
+            <span class="dish-title">Куриная грудка с шампиньонами 🍗</span>
           </div>
-          <span class="dish-description">Запеченный с припущенными овощами и соусом Вишинуаз с креветками</span>
+          <span class="dish-description">Куриная грудка, шампиньоны, сыр, специи, лук — в нежном сливочном соусе</span>
         </label>
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="radio" name="main_dish" value="buzhenina">
-            <span class="dish-title">Буженина 🥩</span>
+            <input type="radio" name="main_dish" value="buzhenina" required>
+            <span class="dish-title">Буженина с брусничным соусом 🥩</span>
           </div>
-          <span class="dish-description">Томленная в специях и дижонской горчице с картофельным гратеном</span>
+          <span class="dish-description">Сочная буженина, подаётся с ароматным брусничным соусом</span>
         </label>
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="radio" name="main_dish" value="svinina">
-            <span class="dish-title">Свинина по-охотничьи 🥩</span>
+            <input type="radio" name="main_dish" value="cod_fish" required>
+            <span class="dish-title">Фиш стейк из трески 🐟</span>
           </div>
-          <span class="dish-description">Рулет из свинины, фаршированный грибами и сыром, с брусничным соусом и картофелем бейби</span>
-        </label>
-
-        <label class="dish-option">
-          <div class="dish-header">
-            <input type="radio" name="main_dish" value="chicken">
-            <span class="dish-title">Стейк из цыплёнка 🥩</span>
-          </div>
-          <span class="dish-description">На гриле с печёными овощами и кисло-сладким соусом</span>
+          <span class="dish-description">Филе трески запечённое в сырной корочке, с соусом Тартар и вяленым томатом</span>
         </label>
       </fieldset>
+
       <fieldset>
-        <legend>🥂 Что будете пить?</legend>
+        <legend>🥗 Гарнир</legend>
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="checkbox" name="drinks" value="виски">
-            <span class="dish-title">Виски 🥃</span>
+            <input type="radio" name="side_dish" value="potato" required>
+            <span class="dish-title">Картофель 🥔</span>
           </div>
         </label>
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="checkbox" name="drinks" value="водка">
-            <span class="dish-title">Водка ❄️</span>
+            <input type="radio" name="side_dish" value="grilled_veggies" required>
+            <span class="dish-title">Овощи гриль 🥦</span>
           </div>
         </label>
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="checkbox" name="drinks" value="коньяк">
-            <span class="dish-title">Коньяк 🥃</span>
+            <input type="radio" name="side_dish" value="mexican_rice" required>
+            <span class="dish-title">Рис по‑мексикански 🌶️</span>
           </div>
         </label>
+        </fieldset>
+        <fieldset>
+          <legend>🥂 Что будете пить?</legend>
 
-        <label class="dish-option">
-          <div class="dish-header">
-            <input type="checkbox" name="drinks" value="шампанское">
-            <span class="dish-title">Шампанское 🍾</span>
+          <label class="dish-option">
+            <div class="dish-header">
+              <input type="checkbox" name="drinks" value="виски">
+              <span class="dish-title">Виски 🥃</span>
+            </div>
+          </label>
+
+          <label class="dish-option">
+            <div class="dish-header">
+              <input type="checkbox" name="drinks" value="водка">
+              <span class="dish-title">Водка ❄️</span>
+            </div>
+          </label>
+
+          <label class="dish-option">
+            <div class="dish-header">
+              <input type="checkbox" name="drinks" value="коньяк">
+              <span class="dish-title">Коньяк 🥃</span>
+            </div>
+          </label>
+
+          <label class="dish-option">
+            <div class="dish-header">
+              <input type="checkbox" name="drinks" value="шампанское">
+              <span class="dish-title">Шампанское 🍾</span>
+            </div>
+          </label>
+
+          <label class="dish-option">
+            <div class="dish-header">
+              <input type="checkbox" name="drinks" value="вино" id="wine-checkbox">
+              <span class="dish-title">Вино 🍷</span>
+            </div>
+          </label>
+
+          <div id="wine-options" class="wine-extra" style="display: none;">
+            <div>
+              <label>Цвет вина:
+                <select name="wine_color">
+                  <option value="">—</option>
+                  <option value="красное">Красное</option>
+                  <option value="белое">Белое</option>
+                </select>
+              </label>
+            </div>
+            <div>
+              <label>Тип вина:
+                <select name="wine_type">
+                  <option value="">—</option>
+                  <option value="сухое">Сухое</option>
+                  <option value="полусухое">Полусухое</option>
+                  <option value="сладкое">Полусладкое</option>
+                </select>
+              </label>
+            </div>
           </div>
-        </label>
-
-        <label class="dish-option">
-          <div class="dish-header">
-            <input type="checkbox" name="drinks" value="вино" id="wine-checkbox">
-            <span class="dish-title">Вино 🍷</span>
-          </div>
-        </label>
-
-        <div id="wine-options" class="wine-extra" style="display: none;">
-          <div>
-            <label>Цвет вина:
-              <select name="wine_color">
-                <option value="">—</option>
-                <option value="красное">Красное</option>
-                <option value="белое">Белое</option>
-              </select>
-            </label>
-          </div>
-          <div>
-            <label>Тип вина:
-              <select name="wine_type">
-                <option value="">—</option>
-                <option value="сухое">Сухое</option>
-                <option value="полусухое">Полусухое</option>
-                <option value="сладкое">Полусладкое</option>
-              </select>
-            </label>
-          </div>
-        </div>
-      </fieldset>
-
-
+        </fieldset>
       <fieldset>
         <legend>💍 Присутствие в ЗАГСе (12:40)</legend>
 

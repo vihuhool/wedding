@@ -91,20 +91,20 @@ def logout():
 @login_required
 def submit_rsvp():
     name = request.form.get("name")
-    drinks = request.form.getlist("drinks")  # список
+    drinks = request.form.getlist("drinks")
     wine_color = request.form.get("wine_color")
     wine_type = request.form.get("wine_type")
     zags = request.form.get("zags")
     restrictions = request.form.get("restrictions")
     main_dish = request.form.get("main_dish")
+    side_dish = request.form.get("side_dish")   # 👈 новый блок
 
-    # Преобразуем список напитков в строку (через запятую)
     drinks_str = ", ".join(drinks)
 
     conn = get_db_connection()
     conn.execute(
-        "INSERT INTO guests (user_id, name, drinks, wine_color, wine_type, zags, food, main_dish) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-        (current_user.id, name, drinks_str, wine_color, wine_type, zags, restrictions, main_dish),
+        "INSERT INTO guests (user_id, name, drinks, wine_color, wine_type, zags, food, main_dish, side_dish) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        (current_user.id, name, drinks_str, wine_color, wine_type, zags, restrictions, main_dish, side_dish),
     )
     conn.commit()
     conn.close()

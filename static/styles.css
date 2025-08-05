@@ -361,6 +361,14 @@ h3, legend { font-size: 50px; }
   text-align: center;
 }
 
+.auth-container h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+  font-size: 28px;   /* сделаем меньше */
+  font-weight: 700;
+}
+
 .toast-overlay {
   position: fixed;
   top: 0;

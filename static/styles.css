@@ -120,6 +120,7 @@ h3, legend { font-size: 50px; }
 
 .map-container {
   margin-top: 15px;
+  margin-bottom: 15px;
   border-radius: 10px;
   overflow: hidden;
 }

@@ -344,16 +344,16 @@ h3, legend { font-size: 50px; }
 
 .auth-form button {
   padding: 10px;
-  background-color: #ff6b6b;
+  background-color: #c3d0a7d3;
   border: none;
   border-radius: 8px;
-  color: white;
+  color: #222;
   font-size: 16px;
   cursor: pointer;
 }
 
 .auth-form button:hover {
-  background-color: #ff4c4c;
+  background-color: #8e9b72d3;
 }
 
 .auth-container p {

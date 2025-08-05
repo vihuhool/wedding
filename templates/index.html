@@ -90,7 +90,28 @@
           <input type="text" name="name" class="input-text" placeholder="Ваше имя и фамилия" required>
         </label>
       </fieldset>
+      <fieldset>
+        <legend>💍 Присутствие в ЗАГСе (12:40)</legend>
 
+        <label class="dish-option">
+          <div class="dish-header">
+            <input type="radio" name="zags" value="да" required>
+            <span class="dish-title">Хочу присутствовать</span>
+          </div>
+        </label>
+
+        <label class="dish-option">
+          <div class="dish-header">
+            <input type="radio" name="zags" value="нет" required>
+            <span class="dish-title">Не планирую</span>
+          </div>
+        </label>
+      </fieldset>
+        <div class="map-container">
+          <script type="text/javascript" charset="utf-8" async
+            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac24b9137d17b99530b38d8c411a0228f6efc6bbc99fbd93066fed2a8002b6d2d&amp;width=573&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+          </script>
+        </div>
       <fieldset>
         <legend>🍽️ Основное блюдо</legend>
 
@@ -226,28 +247,6 @@
             </div>
           </div>
         </fieldset>
-      <fieldset>
-        <legend>💍 Присутствие в ЗАГСе (12:40)</legend>
-
-        <label class="dish-option">
-          <div class="dish-header">
-            <input type="radio" name="zags" value="да" required>
-            <span class="dish-title">Хочу присутствовать</span>
-          </div>
-        </label>
-
-        <label class="dish-option">
-          <div class="dish-header">
-            <input type="radio" name="zags" value="нет" required>
-            <span class="dish-title">Не планирую</span>
-          </div>
-        </label>
-      </fieldset>
-        <div class="map-container">
-          <script type="text/javascript" charset="utf-8" async
-            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac24b9137d17b99530b38d8c411a0228f6efc6bbc99fbd93066fed2a8002b6d2d&amp;width=573&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
-          </script>
-        </div>
 
 
       <button type="submit">Отправить</button>

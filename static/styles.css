@@ -1,7 +1,5 @@
-
-
 /* карточка фото */
-/* ширина контроллера main‑container = 100%,
+/* ширина контроллера main-container = 100%,
    но у контейнера есть padding-left / padding-right = 20px.
    Делаем карточку «чуть шире» и сдвигаем её отрицательным margin. */
 .couple-photo{
@@ -9,14 +7,12 @@
   margin: 30px -20px;        /* -20px нивелирует padding */
   overflow:hidden;
 }
-
 .couple-photo img{
   width: 100%;
   height: auto;
   display: block;
   object-fit: cover;         /* на всякий случай, если фото выше/ниже */
 }
-
 
 :root {
   --font-body: "Montserrat", Arial, sans-serif;   /* текст */
@@ -34,15 +30,16 @@ body {
 /* заголовки и legend */
 h1, h2, h3, legend {
   font-family: var(--font-title);
-  font-weight: 700;        /* у h1 можно 700, см. ниже */
+  font-weight: 700;
   letter-spacing: 0.4px;
 }
 
-h1 { font-size: 50px; font-weight: 700; } /* главный заголовок ещё крупнее */
+/* (базовые размеры — будут переопределены адаптивом ниже) */
+h1 { font-size: 50px; font-weight: 700; }
 h2 { font-size: 80px; }
 h3, legend { font-size: 50px; }
 
-
+/* контейнер */
 .main-container {
   background: #fff6f7;
   padding: 40px 20px;
@@ -57,13 +54,11 @@ h3, legend { font-size: 50px; }
   font-size: 28px;
   color: #333;
 }
-
 .main-container h2 {
   margin-bottom: 10px;
   font-size: 20px;
   color: #333;
 }
-
 .main-container p {
   margin-bottom: 30px;
   font-size: 16px;
@@ -75,40 +70,31 @@ h3, legend { font-size: 50px; }
   font-size: 14px;
   text-align: center;
 }
-
 .logout-link a {
   color: #ff6b6b;
   text-decoration: none;
   opacity: 0.8;
   transition: opacity 0.2s ease;
 }
+.logout-link a:hover { opacity: 1; text-decoration: underline; }
 
-.logout-link a:hover {
-  opacity: 1;
-  text-decoration: underline;
-}
-
-/* ---------- Event‑info как карточка ---------- */
+/* ---------- Event-info как карточка ---------- */
 .event-info {
-  background: #c3d0a7d3;                       /* тот же белый фон */
-  border: none;                              /* убираем серую рамку, если была */
-  border-radius: 12px;                       /* скруглённые углы */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06); /* лёгкая тень, как у .dish-option */
-  padding: 24px;                             /* просторнее отступы */
-  margin-bottom: 30px;                       /* отделяем от следующего блока */
+  background: #c3d0a7d3;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  padding: 24px;
+  margin-bottom: 30px;
 }
-
-/* Заголовок внутри event‑info (например h3) — использовать те же шрифты */
 .event-info h3 {
   font-family: "Great Vibes", cursive;
   font-size: 48px;
   font-weight: 1000;
   margin-bottom: 18px;
   margin-top: 18px;
-  text-align: center;                        /* по центру, как у формы */
+  text-align: center;
 }
-
-/* Если в блоке есть текст/адрес — чуть крупнее базового */
 .event-info p {
   font-family: "Playpen Sans", sans-serif;
   font-weight: 400;
@@ -118,6 +104,7 @@ h3, legend { font-size: 50px; }
   color: #222;
 }
 
+/* карта */
 .map-container {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -125,55 +112,27 @@ h3, legend { font-size: 50px; }
   overflow: hidden;
 }
 
+/* таймер (старые базовые стили) */
+#timer span { font-weight: bold; font-size: 20px; margin: 0 5px; }
 
-#timer span {
-  font-weight: bold;
-  font-size: 20px;
-  margin: 0 5px;
-}
-
-.flash-messages {
-  max-width: 400px;
-  margin: 10px auto;
-  text-align: center;
-}
-
-.flash {
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.flash.success {
-  background-color: #d4edda;
-  color: #155724;
-}
-
-.flash.danger {
-  background-color: #f8d7da;
-  color: #721c24;
-}
+.flash-messages { max-width: 400px; margin: 10px auto; text-align: center; }
+.flash { padding: 10px; border-radius: 8px; margin-bottom: 10px; }
+.flash.success { background-color: #d4edda; color: #155724; }
+.flash.danger  { background-color: #f8d7da; color: #721c24; }
 
 /* RSVP Form */
 .rsvp-form {
-  /* новый фон — мягкий зелёный */
-  background-color: #c3d0a7d3;     /* поменяй на любой HEX, если нужен другой зелёный */
-
-  /* рамка/тень, если нужна */
-  padding: 25px;                 /* чуть больше внутренний отступ */
-  border-radius: 14px;           /* чтобы красивая карта не потерялась */
+  background-color: #c3d0a7d3;
+  padding: 25px;
+  border-radius: 14px;
 }
-
-
 .rsvp-form h3 {
   font-family: "Great Vibes", cursive;
-  text-align: center;     /* по центру */
-  margin-top: 8px;      /* ↓ было 24 px или auto, теперь всего 8 px */
-  margin-bottom: 24px;  /* нижний отступ можно оставить как был */
-  padding-top: 0;    /* чуть больше отступ */
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 24px;
+  padding-top: 0;
 }
-
-
 .rsvp-form label {
   font-family: "Great Vibes", cursive;
   display: block;
@@ -181,7 +140,6 @@ h3, legend { font-size: 50px; }
   font-size: 20px;
   text-align: left;
 }
-
 .rsvp-form input[type="text"],
 .rsvp-form textarea,
 .rsvp-form select {
@@ -193,10 +151,7 @@ h3, legend { font-size: 50px; }
   font-size: 14px;
   box-sizing: border-box;
 }
-
-.rsvp-form textarea {
-  resize: vertical;
-}
+.rsvp-form textarea { resize: vertical; }
 
 .rsvp-form fieldset {
   border: 1px solid #ddd;
@@ -205,298 +160,125 @@ h3, legend { font-size: 50px; }
   margin-bottom: 4px;
   background-color: transparent;
 }
-
 .rsvp-form legend {
-  display: inline-block;        /* ширина = ширине текста */
+  display: inline-block;
   padding: 4px 12px;
   font-size: 30px;
   font-weight: 600;
   color: #222;
-  margin-bottom: 0px; 
-  background: transparent;      /* прозрачный фон */
-
-  border-radius: 12px;          /* скруглённые углы */
+  margin-bottom: 0px;
+  background: transparent;
+  border-radius: 12px;
 }
 
 /* Чекбоксы и радиокнопки в сетке */
-
-.options-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 20px;
+.options-grid { display: flex; flex-wrap: wrap; gap: 10px 20px; }
+.options-grid label{
+  display: flex; align-items: center; gap: 8px;
+  font-size: 15px; padding: 10px 12px; border-radius: 8px;
+  background-color: white; border: 1px solid #ccc;
+  width: 100%; box-sizing: border-box; transition: box-shadow .2s ease;
 }
-
-.options-grid label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 15px;
-  padding: 10px 12px;
-  border-radius: 8px;
-  background-color: white;
-  border: 1px solid #ccc;
-  width: 100%;
-  box-sizing: border-box;
-  transition: box-shadow 0.2s ease;
-}
-
-.options-grid label:hover {
-  box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
-}
+.options-grid label:hover { box-shadow: 0 0 0 2px rgba(255,107,107,.2); }
 
 .rsvp-form button{
-  display:block;             /* чтобы margin:auto сработал */
-  margin:10px auto 0;        /* 10 px сверху, авто по бокам, 0 снизу */
-
-  font-family:"Yanone Kaffeesatz",sans-serif;
-  font-size:1.4rem;
-  font-weight:600;
-
-  background:#c3d0a7d3;
-  color:#222;
-
-  padding:14px 36px;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
+  display:block; margin:10px auto 0;
+  font-family:"Yanone Kaffeesatz",sans-serif; font-size:1.4rem; font-weight:600;
+  background:#c3d0a7d3; color:#222;
+  padding:14px 36px; border:none; border-radius:10px; cursor:pointer;
   transition:background .25s ease,transform .15s;
   box-shadow:0 2px 4px rgba(0,0,0,.12);
 }
-
-.rsvp-form button:hover{
-  background:#b6c79ad3;
-}
-
-.rsvp-form button:active{
-  transform:translateY(1px);
-  box-shadow:0 1px 2px rgba(0,0,0,.18);
-}
+.rsvp-form button:hover{ background:#b6c79ad3; }
+.rsvp-form button:active{ transform:translateY(1px); box-shadow:0 1px 2px rgba(0,0,0,.18); }
 
 #wine-options {
-  background: #fff6f7;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-  padding: 16px;
-  margin-bottom: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+  background: #fff6f7; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  padding: 16px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 18px;
 }
-
-/* Подписи «Цвет вина», «Тип вина» */
 #wine-options label {
-  font-family: "Playpen Sans", sans-serif;
-  font-size: 1.2rem;
-  font-weight: 500;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  font-family: "Playpen Sans", sans-serif; font-size: 1.2rem; font-weight: 500;
+  display: flex; flex-direction: column; gap: 8px;
 }
-
-/* Сами выпадающие списки выглядят как dish-option */
-/* карточка оставляем как есть — меняем только поля <select> */
 #wine-options select {
-  border: 1px solid #d4d4d4;        /* тоньше и светлее */
-  box-shadow: none;                 /* убираем дополнительный обводочный shadow */
-  border-radius: 10px;
-  padding: 12px 14px;
-  font-size: 1.05rem;
-  font-family: "Playpen Sans", sans-serif;
-  appearance: none;
-  outline: none;
-  transition: border-color 0.15s ease;
+  border: 1px solid #d4d4d4; box-shadow: none; border-radius: 10px;
+  padding: 12px 14px; font-size: 1.05rem; font-family: "Playpen Sans", sans-serif;
+  appearance: none; outline: none; transition: border-color .15s ease;
 }
-
-/* лёгкий акцент при фокусе / наведении */
 #wine-options select:hover,
-#wine-options select:focus {
-  border-color: #ff6b6b;            /* тонкий розовый акцент вместо толстой рамки */
-}
-
+#wine-options select:focus { border-color: #ff6b6b; }
 
 .auth-container {
-  background: #fff;
-  padding: 30px;
-  max-width: 400px;
-  margin: 60px auto;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background: #fff; padding: 30px; max-width: 400px; margin: 60px auto;
+  border-radius: 15px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
-
-.auth-container h2 {
-  margin-bottom: 20px;
-  text-align: center;
-  color: #333;
-}
-
-.auth-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.auth-form input {
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-}
-
-.auth-form button {
-  padding: 10px;
-  background-color: #c3d0a7d3;
-  border: none;
-  border-radius: 8px;
-  color: #222;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.auth-form button:hover {
-  background-color: #8e9b72d3;
-}
-
-.auth-container p {
-  margin-top: 15px;
-  text-align: center;
-}
-
-.auth-container h1 {
-  margin-bottom: 20px;
-  text-align: center;
-  color: #333;
-  font-size: 28px;   /* сделаем меньше */
-  font-weight: 700;
-}
+.auth-container h2 { margin-bottom: 20px; text-align: center; color: #333; }
+.auth-form { display: flex; flex-direction: column; }
+.auth-form input { padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; }
+.auth-form button { padding: 10px; background-color: #c3d0a7d3; border: none; border-radius: 8px; color: #222; font-size: 16px; cursor: pointer; }
+.auth-form button:hover { background-color: #8e9b72d3; }
+.auth-container p { margin-top: 15px; text-align: center; }
+.auth-container h1 { margin-bottom: 20px; text-align: center; color: #333; font-size: 28px; font-weight: 700; }
 
 .toast-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(6px); /* размытие */
-  background-color: rgba(0, 0, 0, 0.2); /* полупрозрачный тёмный фон */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
-  transition: opacity 0.3s ease;
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  backdrop-filter: blur(6px); background-color: rgba(0, 0, 0, 0.2);
+  display: flex; align-items: center; justify-content: center; z-index: 10000; transition: opacity .3s ease;
 }
-
-.toast-overlay.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
+.toast-overlay.hidden { opacity: 0; pointer-events: none; }
 .toast {
-  background-color: #d4edda;
-  color: #155724;
-  padding: 24px 36px;
-  border-radius: 16px;
-  font-size: 20px;
-  font-weight: 600;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-  max-width: 90%;
-  text-align: center;
+  background-color: #d4edda; color: #155724; padding: 24px 36px; border-radius: 16px;
+  font-size: 20px; font-weight: 600; box-shadow: 0 12px 30px rgba(0,0,0,.2);
+  max-width: 90%; text-align: center;
 }
 
-fieldset {
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 30px;
-  background-color: #fdfdfd;
-}
+/* дефолтные fieldset/legend (не используются, но оставим) */
+fieldset { border: 1px solid #ddd; border-radius: 12px; padding: 20px; margin-bottom: 30px; background-color: #fdfdfd; }
+legend { font-weight: bold; margin-bottom: 15px; font-size: 18px; text-align: center; }
 
-legend {
-  font-weight: bold;
-  margin-bottom: 15px;
-  font-size: 18px;
-  text-align: center;
-}
-
+/* карточки блюд */
 .dish-option {
-  display: block;
-  background: #fff6f7;
-  border-radius: 10px;
-
-  /* убираем обводку */
-  border: none;          /* либо border: 0; */
-
-  /* можно оставить лёгкую тень для отделения карточек */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-
-  padding: 16px;
-  margin-bottom: 16px;
+  display: block; background: #fff6f7; border-radius: 10px; border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06); padding: 16px; margin-bottom: 16px;
 }
-
-.dish-header {
-  font-family: "Playpen Sans", sans-serif;
-  font-weight: 600;     /* 500–600 выглядят оптимально */
-  letter-spacing: 0.3px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.dish-header input[type="radio"] {
-  font-family: "Playpen Sans", sans-serif;
-  font-weight: 600;     /* 500–600 выглядят оптимально */
-  letter-spacing: 0.3px;
-  margin: 0;
-}
-
+.dish-header { font-family: "Playpen Sans", sans-serif; font-weight: 600; letter-spacing: .3px; display: flex; align-items: center; gap: 8px; }
+.dish-header input[type="radio"] { margin: 0; }
 .dish-title {
-  font-family: "Caveat", sans-serif;
-  font-weight: 500;     /* 500–600 выглядят оптимально */
-  letter-spacing: 0.4px;
-  font-weight: bold;
-  font-size: 1.6rem;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  font-family: "Caveat", sans-serif; letter-spacing: .4px; font-weight: bold; font-size: 1.6rem;
+  display: flex; align-items: center; gap: 6px;
 }
-
 .dish-description {
-  font-family: "Playpen Sans", sans-serif;
-  font-weight: 300;     /* 500–600 выглядят оптимально */
-  letter-spacing: 0.6px;
-  display: block;
-  margin-top: 2px;
-  font-size: 1.1rem;
-  color: #555;
-  padding-left: 0; /* убран отступ слева */
+  font-family: "Playpen Sans", sans-serif; font-weight: 300; letter-spacing: .6px;
+  display: block; margin-top: 2px; font-size: 1.1rem; color: #555; padding-left: 0;
 }
 
+/* главные заголовки */
 .main-container > h1 {
-  text-align: center;       /* по центру */
-  font-size: 60px;          /* крупнее (было 28px) */
+  text-align: center;
+  font-size: 60px;
   font-family: "Great Vibes", cursive;
-  font-weight: 700;         /* чуть толще, если нужно */
+  font-weight: 700;
   margin-top: 1px;
-  letter-spacing: 0.5px;    /* лёгкий «воздух» в буквах */
+  letter-spacing: .5px;
 }
-
 .main-container > h2 {
-  text-align: center;       /* по центру */
-  font-size: 40px;          /* крупнее (было 28px) */
+  text-align: center;
+  font-size: 40px;
   font-family: "Great Vibes", cursive;
-  font-weight: 700;         /* чуть толще, если нужно */
-  margin-bottom: 10px;  
+  font-weight: 700;
+  margin-bottom: 10px;
   margin-top: -40px;
 }
 
-/* Карточка‑рамка — как раньше */
+/* Карточка-рамка — как раньше */
 .countdown{
-  margin-bottom: 40px;  
+  margin-bottom: 40px;
   margin-top: 1px;
   padding:24px 24px;
   border-radius:20px;
-  background: #c3d0a7d3;    
+  background: #c3d0a7d3;
   text-align:center;
 }
-
 .countdown h3{
   font-family: "Great Vibes", cursive;
   font-size:48px;
@@ -517,68 +299,51 @@ legend {
   flex:1 1 0;
   position:relative;
   width:90px;
-  aspect-ratio:1/1;              /* идеально круг */
+  aspect-ratio:1/1;
   border-radius:50%;
-  border:2px solid #cdd8c9;      /* «обводка» */
+  border:2px solid #cdd8c9;
   background: #fff6f7;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  padding:8px;                   /* «воздух» внутри круга */
+  padding:8px;
   box-sizing:border-box;
 }
 
-/* Число */
-.count-num{
-  font-family: "Playpen Sans", sans-serif;
-  font-size:34px;
-  font-weight:700;
-  line-height:1;
-  color:#465046;
-}
+/* Число / подпись */
+.count-num{  font-family: "Playpen Sans", sans-serif; font-size:34px; font-weight:700; line-height:1; color:#465046; }
+.count-label{ font-family: "Playpen Sans", sans-serif; font-size:20px; color:#667066; letter-spacing:.3px; margin-top:2px; }
 
-/* Подпись под числом (тоже внутри круга) */
-.count-label{
-  font-family: "Playpen Sans", sans-serif;
-  font-size:20px;
-  color:#667066;
-  letter-spacing:0.3px;
-  margin-top:2px;
-}
-
-/* фон‑картинка без размытия */
+/* фон */
 body{
   background: url("/static/background.png") center/cover fixed no-repeat;
-  position: relative;          /* для псевдо‑элемента */
+  position: relative;
 }
-
 body::before{
   content: "";
   position: fixed;
-  inset: 0;                          /* займёт весь экран */
-  background: rgba(0,0,0,0.10);      /* лёгкое затемнение (25 %) */       /* размытие ТОЛЬКО фона */
-  z-index: -1;                       /* ниже всего контента */
-  pointer-events: none;              /* чтобы не перехватывал клики */
+  inset: 0;
+  background: rgba(0,0,0,0.10);
+  z-index: -1;
+  pointer-events: none;
 }
 
-/* --- Блок dress‑code --- */
+/* dress-code */
 .dress-code{
-  background: #c3d0a7d3;          /* мягкий салатовый */
+  background: #c3d0a7d3;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.06);
   padding: 28px 24px;
   margin: 36px 0;
   text-align: center;
 }
-
 .dress-code h3{
   font-family: "Great Vibes", cursive;
   margin: 10px 0 16px;
   font-size: 48px;
   color: #222;
 }
-
 .dress-code p{
   font-family: "Playpen Sans", sans-serif;
   font-weight: 400;
@@ -587,59 +352,32 @@ body::before{
   margin-bottom: 20px;
   color: #222;
 }
-
-/* ——— Палитра кружков —————————————————————————— */
 .color-palette{
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  display: flex; justify-content: center; gap: 14px;
+  list-style: none; padding: 0; margin: 0;
 }
-
 .color-palette li{
-  position: relative;             /* нужно для ::before */
-  width: 54px;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  background: var(--swatch);
-  box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
+  position: relative; width: 54px; aspect-ratio: 1/1; border-radius: 50%;
+  background: var(--swatch); box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
 }
-
-/* белая подложка чуть больше цветного круга */
 .color-palette li::before{
-  content: "";
-  position: absolute;
-  inset: -10px;                    /* +4 px во все стороны → подложка крупнее */
-  border-radius: 50%;
-  background: #fff;
-  z-index: -1;                    /* под цветным кругом */
+  content: ""; position: absolute; inset: -10px; border-radius: 50%; background: #fff; z-index: -1;
 }
 
-/* Центрируем картинку-календарь */
-.wedding-date{
-  text-align: center;      /* горизонтальное выравнивание */
-  margin-top: 0px; 
-  margin-bottom: 10px;         /* отступы сверху/снизу */
-}
+/* календарь */
+.wedding-date{ text-align: center; margin-top: 0px; margin-bottom: 10px; }
+.wedding-date img{ width: 480px; max-width: 100%; height: auto; }
 
-.wedding-date img{
-  width: 480px;       /* КРУПНО: можете менять 480 → 600 или любое значение */
-  max-width: 100%;    /* не даст выйти за границы родителя на мобильных */
-  height: auto;
-}
+/* ======= АДАПТИВ + ДОП. ПРАВКИ ПОД ТВОИ ТРЕБОВАНИЯ ======= */
 
+/* масштабируем заголовки, и ЗАПРЕЩАЕМ перенос */
 h1 { font-size: clamp(28px, 6vw, 60px); font-weight:700; }
 h2 { font-size: clamp(22px, 4.8vw, 40px); }
 h3, legend { font-size: clamp(22px, 4.8vw, 50px); }
+h1, h2, h3, legend { white-space: nowrap; }
 
-/* основной контейнер */
-.main-container{
-  padding: clamp(20px, 4vw, 40px) 20px;
-  margin: 30px auto;
-  max-width: 640px;
-}
+/* основной контейнер адаптив */
+.main-container{ padding: clamp(20px, 4vw, 40px) 20px; margin: 30px auto; max-width: 640px; }
 
 /* фото пары — на очень узких экранах без отрицательных отступов */
 @media (max-width: 420px){
@@ -649,22 +387,16 @@ h3, legend { font-size: clamp(22px, 4.8vw, 50px); }
 /* календарь */
 .wedding-date img{ width:100%; max-width:480px; height:auto; }
 
-/* счётчик */
-.timer-wrapper{ display:flex; gap:10px; flex-wrap:wrap; }
+/* ТАЙМЕР: ВСЕГДА В ОДНУ СТРОКУ, без переносов */
+.timer-wrapper{ display:flex; gap:10px; flex-wrap: nowrap; }
 .count-circle{
-  flex: 1 1 calc(50% - 10px);
-  max-width:160px;
-  width:auto;
-  padding:10px;
-  border:1.5px solid #cdd8c9;
+  flex: 0 0 calc((100% - 30px)/4); /* 4 круга + 3 промежутка по 10px */
+  max-width:none; width:auto; padding:10px; border:1.5px solid #cdd8c9;
 }
-@media (min-width:520px){
-  .count-circle{ flex:1 1 0; }
-}
-.count-num   { font-size: clamp(22px, 5.2vw, 34px); font-weight:700; }
-.count-label { font-size: clamp(14px, 4vw, 20px); }
+.count-num   { font-size: clamp(18px, 4.6vw, 28px); font-weight:700; }
+.count-label { font-size: clamp(12px, 3.6vw, 16px); }
 
-/* формы — удобочитаемость на iOS (без авто-zoom) */
+/* формы — удобочитаемость на iOS */
 .rsvp-form input[type="text"],
 .rsvp-form textarea,
 .rsvp-form select { font-size:16px; }
@@ -672,15 +404,24 @@ h3, legend { font-size: clamp(22px, 4.8vw, 50px); }
 .rsvp-form{ padding: clamp(16px, 4vw, 25px); }
 .rsvp-form fieldset{ padding:16px 12px 4px; }
 
-/* палитра кружков */
+/* палитра кружков — уменьшаем на мобильных */
 .color-palette{ gap:10px; }
 .color-palette li{ width: clamp(28px, 9vw, 54px); aspect-ratio:1/1; }
 .color-palette li::before{ inset:-6px; }
 
-/* карты (страховка на случай сторонних inline-стилей) */
+/* КАРТА FULL-BLEED внутри .event-info (шире, чем контент карточки) */
+.map-container{
+  margin: 15px -24px;                 /* съедаем паддинги .event-info */
+  width: calc(100% + 48px);
+  border-radius: 10px;
+  overflow: hidden;
+}
 .map-container iframe,
 .map-container > div,
 .map-container script + * {
   width:100% !important;
-  height:auto;
+  height:400px !important;
 }
+
+/* утилита: не отрывать слово + эмодзи */
+.no-break { white-space: nowrap; }

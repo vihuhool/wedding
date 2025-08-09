@@ -19,60 +19,66 @@
       <span id="toast-message"></span>
     </div>
   </div>
+
   <div class="main-container">
-    <h1>Добро пожаловать</h1>
-    <h2>на нашу свадьбу!</h2>
+    <h1>Добро&nbsp;пожаловать</h1>
+    <h2>на&nbsp;нашу&nbsp;свадьбу!</h2>
+
     <div class="couple-photo">
-      <img src="/static/photo.png" alt="Мы ждём вас на нашей свадьбе">
+      <img src="/static/photo.png" alt="Мы ждём вас на нашей свадьбе" loading="lazy">
     </div>
+
     <div class="wedding-date">
-      <img src="/static/calendar.png" alt="2 ноября 2025 г., 14:00">
+      <img src="/static/calendar.png" alt="2&nbsp;ноября&nbsp;2025&nbsp;г.,&nbsp;14:00" loading="lazy">
     </div>
+
     <div class="event-info">
-      <h3> Место проведения</h3>
+      <h3>Место&nbsp;проведения</h3>
       <p>Банкетный зал "Лея"<br>Свердловская наб., 62, Санкт-Петербург<br>Время: 14:00</p>
+
       <div class="map-container">
-        <script type="text/javascript" charset="utf-8" async
-          src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A317e1229c0303a240f835b1636f362c2167f79794723a2f41b3fedb117de73ea&width=100%25&height=400&lang=ru_RU&scroll=true" async>
+        <script
+          type="text/javascript"
+          charset="utf-8"
+          src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A317e1229c0303a240f835b1636f362c2167f79794723a2f41b3fedb117de73ea&width=100%25&height=400&lang=ru_RU&scroll=true"
+          async>
         </script>
       </div>
     </div>
-<!-- Дресс‑код / рекомендованная палитра -->
+
+    <!-- Дресс-код / рекомендованная палитра -->
     <section class="dress-code">
       <h3>Дресс-код</h3>
       <p>Наш зал выполнен в бежевых тонах с акцентами светом<br>Предлагаем Вам использовать в одежде пастельные или природные тона, например:</p>
 
       <ul class="color-palette">
-        <!-- задаём цвет через CSS‑переменную --swatch прямо в style -->
-        <li style="--swatch:#000000"></li>  <!-- угольно‑чёрный -->
-        <li style="--swatch:#7E7E7E"></li>  <!-- тёмный шоколад -->
-        <li style="--swatch:#7d8457"></li>  <!-- оливково‑зелёный акцент -->
-        <li style="--swatch:#8d6f57"></li>  <!-- кофейный -->
-        <li style="--swatch:#b99f88"></li>  <!-- капучино -->
-        <li style="--swatch:#DAAEAD"></li>  <!-- розовый -->
-        <li style="--swatch:#d7c6b5"></li>  <!-- бежевый -->
-        <li style="--swatch:#f6ede3"></li>  <!-- почти кремовый -->
+        <li style="--swatch:#000000"></li>
+        <li style="--swatch:#7E7E7E"></li>
+        <li style="--swatch:#7d8457"></li>
+        <li style="--swatch:#8d6f57"></li>
+        <li style="--swatch:#b99f88"></li>
+        <li style="--swatch:#DAAEAD"></li>
+        <li style="--swatch:#d7c6b5"></li>
+        <li style="--swatch:#f6ede3"></li>
       </ul>
     </section>
+
     <div class="countdown">
-      <h3>До торжества осталось</h3>
+      <h3>До&nbsp;торжества&nbsp;осталось</h3>
 
       <div class="timer-wrapper">
         <div class="count-circle">
-          <span id="days"   class="count-num">--</span>
+          <span id="days" class="count-num">--</span>
           <span class="count-label">дней</span>
         </div>
-
         <div class="count-circle">
-          <span id="hours"  class="count-num">--</span>
+          <span id="hours" class="count-num">--</span>
           <span class="count-label">часов</span>
         </div>
-
         <div class="count-circle">
           <span id="minutes" class="count-num">--</span>
           <span class="count-label">минут</span>
         </div>
-
         <div class="count-circle">
           <span id="seconds" class="count-num">--</span>
           <span class="count-label">секунд</span>
@@ -82,46 +88,52 @@
 
     <form action="/submit_rsvp" method="POST" class="rsvp-form">
 
-      <h3>Анкета участника</h3>
+      <h3>Анкета&nbsp;участника</h3>
 
       <fieldset>
-        <legend>👤 Ваше имя</legend>
+        <legend>👤&nbsp;Ваше&nbsp;имя</legend>
         <label class="dish-option">
           <div class="dish-header">
-            <span class="dish-title">Имя и фамилия</span>
+            <span class="dish-title">Имя&nbsp;и&nbsp;фамилия</span>
           </div>
           <input type="text" name="name" class="input-text" placeholder="Ваше имя и фамилия" required>
         </label>
       </fieldset>
+
       <fieldset>
-        <legend>💍 Присутствие в ЗАГСе (12:40)</legend>
+        <legend>💍&nbsp;Присутствие&nbsp;в&nbsp;ЗАГСе&nbsp;(12:40)</legend>
 
         <label class="dish-option">
           <div class="dish-header">
             <input type="radio" name="zags" value="да" required>
-            <span class="dish-title">Хочу присутствовать</span>
+            <span class="dish-title no-break">Хочу&nbsp;присутствовать</span>
           </div>
         </label>
 
         <label class="dish-option">
           <div class="dish-header">
             <input type="radio" name="zags" value="нет" required>
-            <span class="dish-title">Не планирую</span>
+            <span class="dish-title no-break">Не&nbsp;планирую</span>
           </div>
         </label>
       </fieldset>
-        <div class="map-container">
-          <script type="text/javascript" charset="utf-8" async
-            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac24b9137d17b99530b38d8c411a0228f6efc6bbc99fbd93066fed2a8002b6d2d&width=100%25&height=400&lang=ru_RU&scroll=true" async></script>
-          </script>
-        </div>
+
+      <div class="map-container">
+        <script
+          type="text/javascript"
+          charset="utf-8"
+          src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac24b9137d17b99530b38d8c411a0228f6efc6bbc99fbd93066fed2a8002b6d2d&width=100%25&height=400&lang=ru_RU&scroll=true"
+          async>
+        </script>
+      </div>
+
       <fieldset>
-        <legend>🍽️ Основное блюдо</legend>
+        <legend>🍽️&nbsp;Основное&nbsp;блюдо</legend>
 
         <label class="dish-option">
           <div class="dish-header">
             <input type="radio" name="main_dish" value="chicken_mushroom" required>
-            <span class="dish-title">Куриная грудка с шампиньонами 🍗</span>
+            <span class="dish-title no-break">Куриная&nbsp;грудка&nbsp;с&nbsp;шампиньонами&nbsp;🍗</span>
           </div>
           <span class="dish-description">Куриная грудка, шампиньоны, сыр, специи, лук — в нежном сливочном соусе</span>
         </label>
@@ -129,7 +141,7 @@
         <label class="dish-option">
           <div class="dish-header">
             <input type="radio" name="main_dish" value="buzhenina" required>
-            <span class="dish-title">Буженина с брусничным соусом 🥩</span>
+            <span class="dish-title no-break">Буженина&nbsp;с&nbsp;брусничным&nbsp;соусом&nbsp;🥩</span>
           </div>
           <span class="dish-description">Сочная буженина, подаётся с ароматным брусничным соусом</span>
         </label>
@@ -137,188 +149,179 @@
         <label class="dish-option">
           <div class="dish-header">
             <input type="radio" name="main_dish" value="cod_fish" required>
-            <span class="dish-title">Фиш стейк из трески 🐟</span>
+            <span class="dish-title no-break">Фиш&nbsp;стейк&nbsp;из&nbsp;трески&nbsp;🐟</span>
           </div>
           <span class="dish-description">Филе трески запечённое в сырной корочке, с соусом Тартар и вяленым томатом</span>
         </label>
       </fieldset>
 
       <fieldset>
-        <legend>🥗 Гарнир</legend>
+        <legend>🥗&nbsp;Гарнир</legend>
 
         <label class="dish-option">
           <div class="dish-header">
             <input type="radio" name="side_dish" value="potato" required>
-            <span class="dish-title">Картофель 🥔</span>
+            <span class="dish-title no-break">Картофель&nbsp;🥔</span>
           </div>
         </label>
 
         <label class="dish-option">
           <div class="dish-header">
             <input type="radio" name="side_dish" value="grilled_veggies" required>
-            <span class="dish-title">Овощи гриль 🥦</span>
+            <span class="dish-title no-break">Овощи&nbsp;гриль&nbsp;🥦</span>
           </div>
         </label>
 
         <label class="dish-option">
           <div class="dish-header">
             <input type="radio" name="side_dish" value="mexican_rice" required>
-            <span class="dish-title">Рис по‑мексикански 🌶️</span>
+            <span class="dish-title no-break">Рис&nbsp;по-мексикански&nbsp;🌶️</span>
           </div>
         </label>
-        </fieldset>
-        <fieldset>
-          <legend>🥗 Ограничения по еде</legend>
-          <label class="dish-option">
-            <div class="dish-header">
-              <span class="dish-title">Аллергии и пожелания</span>
-            </div>
-            <input type="text" name="restrictions" class="input-text" placeholder="Укажите, если есть аллергии или особые пожелания..." required>
-          </label>
-        </fieldset>
-        <fieldset>
-          <legend>🥂 Что будете пить?</legend>
+      </fieldset>
 
-          <label class="dish-option">
-            <div class="dish-header">
-              <input type="checkbox" name="drinks" value="виски">
-              <span class="dish-title">Виски 🥃</span>
-            </div>
-          </label>
-
-          <label class="dish-option">
-            <div class="dish-header">
-              <input type="checkbox" name="drinks" value="джин">
-              <span class="dish-title">Джин 🍸</span>
-            </div>
-          </label>
-
-          <label class="dish-option">
-            <div class="dish-header">
-              <input type="checkbox" name="drinks" value="ягермейстер">
-              <span class="dish-title">Ягермейстер 🦌</span>
-            </div>
-          </label>
-
-          <label class="dish-option">
-            <div class="dish-header">
-              <input type="checkbox" name="drinks" value="водка">
-              <span class="dish-title">Водка ❄️</span>
-            </div>
-          </label>
-
-          <label class="dish-option">
-            <div class="dish-header">
-              <input type="checkbox" name="drinks" value="коньяк">
-              <span class="dish-title">Коньяк 🥃</span>
-            </div>
-          </label>
-
-          <label class="dish-option">
-            <div class="dish-header">
-              <input type="checkbox" name="drinks" value="шампанское">
-              <span class="dish-title">Шампанское 🍾</span>
-            </div>
-          </label>
-
-          <label class="dish-option">
-            <div class="dish-header">
-              <input type="checkbox" name="drinks" value="вино" id="wine-checkbox">
-              <span class="dish-title">Вино 🍷</span>
-            </div>
-          </label>
-
-          <div id="wine-options" class="wine-extra" style="display: none;">
-            <div>
-              <label>Цвет вина:
-                <select name="wine_color">
-                  <option value="">—</option>
-                  <option value="красное">Красное</option>
-                  <option value="белое">Белое</option>
-                </select>
-              </label>
-            </div>
-            <div>
-              <label>Тип вина:
-                <select name="wine_type">
-                  <option value="">—</option>
-                  <option value="сухое">Сухое</option>
-                  <option value="полусухое">Полусухое</option>
-                  <option value="сладкое">Полусладкое</option>
-                </select>
-              </label>
-            </div>
+      <fieldset>
+        <legend>🥗&nbsp;Ограничения&nbsp;по&nbsp;еде</legend>
+        <label class="dish-option">
+          <div class="dish-header">
+            <span class="dish-title">Аллергии&nbsp;и&nbsp;пожелания</span>
           </div>
-        </fieldset>
+          <input type="text" name="restrictions" class="input-text" placeholder="Укажите, если есть аллергии или особые пожелания..." required>
+        </label>
+      </fieldset>
 
+      <fieldset>
+        <legend>🥂&nbsp;Что&nbsp;будете&nbsp;пить?</legend>
+
+        <label class="dish-option">
+          <div class="dish-header">
+            <input type="checkbox" name="drinks" value="виски">
+            <span class="dish-title no-break">Виски&nbsp;🥃</span>
+          </div>
+        </label>
+
+        <label class="dish-option">
+          <div class="dish-header">
+            <input type="checkbox" name="drinks" value="джин">
+            <span class="dish-title no-break">Джин&nbsp;🍸</span>
+          </div>
+        </label>
+
+        <label class="dish-option">
+          <div class="dish-header">
+            <input type="checkbox" name="drinks" value="ягермейстер">
+            <span class="dish-title no-break">Ягермейстер&nbsp;🦌</span>
+          </div>
+        </label>
+
+        <label class="dish-option">
+          <div class="dish-header">
+            <input type="checkbox" name="drinks" value="водка">
+            <span class="dish-title no-break">Водка&nbsp;❄️</span>
+          </div>
+        </label>
+
+        <label class="dish-option">
+          <div class="dish-header">
+            <input type="checkbox" name="drinks" value="коньяк">
+            <span class="dish-title no-break">Коньяк&nbsp;🥃</span>
+          </div>
+        </label>
+
+        <label class="dish-option">
+          <div class="dish-header">
+            <input type="checkbox" name="drinks" value="шампанское">
+            <span class="dish-title no-break">Шампанское&nbsp;🍾</span>
+          </div>
+        </label>
+
+        <label class="dish-option">
+          <div class="dish-header">
+            <input type="checkbox" name="drinks" value="вино" id="wine-checkbox">
+            <span class="dish-title no-break">Вино&nbsp;🍷</span>
+          </div>
+        </label>
+
+        <div id="wine-options" class="wine-extra" style="display: none;">
+          <div>
+            <label>Цвет вина:
+              <select name="wine_color">
+                <option value="">—</option>
+                <option value="красное">Красное</option>
+                <option value="белое">Белое</option>
+              </select>
+            </label>
+          </div>
+          <div>
+            <label>Тип вина:
+              <select name="wine_type">
+                <option value="">—</option>
+                <option value="сухое">Сухое</option>
+                <option value="полусухое">Полусухое</option>
+                <option value="сладкое">Полусладкое</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </fieldset>
 
       <button type="submit">Отправить</button>
     </form>
   </div>
+
   <p class="logout-link">
     <a href="/logout">Выйти из аккаунта</a>
   </p>
+
   <script>
-  const targetDate = new Date("2025-11-02T14:00:00");
+    const targetDate = new Date("2025-11-02T14:00:00");
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+      if (diff <= 0) return;
 
-  function updateCountdown() {
-    const now = new Date();
-    const diff = targetDate - now;
+      const days    = Math.floor(diff / (1000*60*60*24));
+      const hours   = Math.floor((diff / (1000*60*60)) % 24);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
 
-    if (diff <= 0) {
-      document.getElementById("timer").innerHTML = "🎉 Сегодня!";
-      return;
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
     }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / 1000 / 60) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
+  <script>
+    const wineCheckbox = document.getElementById("wine-checkbox");
+    const wineOptions  = document.getElementById("wine-options");
+    wineCheckbox.addEventListener("change", function () {
+      wineOptions.style.display = this.checked ? "block" : "none";
+    });
+  </script>
 
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
-  }
+  <script>
+    const messages = {{ get_flashed_messages(with_categories=true) | tojson }};
+    if (messages.length > 0) {
+      const overlay = document.getElementById('toast-overlay');
+      const toastMessage = document.getElementById('toast-message');
+      toastMessage.textContent = messages[0][1];
+      overlay.classList.remove('hidden');
+      setTimeout(() => { overlay.classList.add('hidden'); }, 4000);
+    }
+  </script>
 
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
-</script>
-<script>
-  const wineCheckbox = document.getElementById("wine-checkbox");
-  const wineOptions = document.getElementById("wine-options");
-
-  wineCheckbox.addEventListener("change", function () {
-    wineOptions.style.display = this.checked ? "block" : "none";
-  });
-</script>
-<script>
-  const messages = {{ get_flashed_messages(with_categories=true) | tojson }};
-  if (messages.length > 0) {
-    const overlay = document.getElementById('toast-overlay');
-    const toastMessage = document.getElementById('toast-message');
-    toastMessage.textContent = messages[0][1];
-    overlay.classList.remove('hidden');
-
-    setTimeout(() => {
-      overlay.classList.add('hidden');
-    }, 4000);
-  }
-</script>
-<script>
-  // Если в URL есть ?confetti=1 → запускаем фейерверк
-  if (new URLSearchParams(window.location.search).get("confetti") === "1") {
-    // небольшая задержка, чтобы страница успела нарисоваться
-    setTimeout(() => {
-      confetti({
-        particleCount: 300,
-        spread: 250,
-        origin: { y: 0.4 }   // старт чуть ниже верхнего края
-      });
-      history.replaceState(null, "", window.location.pathname);
-    }, 500);
-  }
-</script>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    // Если в URL есть ?confetti=1 → запускаем фейерверк
+    if (new URLSearchParams(window.location.search).get("confetti") === "1") {
+      setTimeout(() => {
+        confetti({ particleCount: 300, spread: 250, origin: { y: 0.4 } });
+        history.replaceState(null, "", window.location.pathname);
+      }, 500);
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </body>
 </html>

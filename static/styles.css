@@ -409,27 +409,26 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
 /* очень узкие экраны: фото без отриц. отступов */
 @media (min-width: 900px){
   .timer-wrapper{
-    --gap: 40px; /* чуть больше расстояние между кругами */
-    justify-content: space-evenly;
-    padding: 0 12px;
+    --gap: 40px; /* расстояние между кругами */
+    justify-content: center;
   }
   .count-circle{
-    flex: 0 0 140px; /* ширина круга */
-    width: 140px;
+    flex: 0 0 140px; /* задаём только flex-basis */
+    aspect-ratio: 1/1; /* гарантируем, что останется круг */
   }
   .count-num{
-    font-size: 42px; /* цифры крупнее */
+    font-size: 42px;
   }
   .count-label{
-    font-size: 20px; /* подписи чуть крупнее */
+    font-size: 20px;
   }
 }
 
 @media (min-width: 1200px){
   .timer-wrapper{ --gap: 50px; }
   .count-circle{
-    flex: 0 0 160px; /* ещё больше на очень больших экранах */
-    width: 160px;
+    flex: 0 0 160px;
+    aspect-ratio: 1/1;
   }
   .count-num{
     font-size: 46px;

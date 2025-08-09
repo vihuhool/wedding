@@ -427,9 +427,9 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
 
 @media (min-width: 1024px) {
   .count-circle {
-    flex: 0 0 140px; /* ширина и высота круга */
-    width: 140px;
-    aspect-ratio: 1 / 1; /* гарантирует, что круг не станет овалом */
+    flex: 0 0 140px !important;
+    width: 140px !important;
+    aspect-ratio: 1 / 1;
   }
   .count-num {
     font-size: 42px;

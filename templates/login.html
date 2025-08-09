@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Вход</title>
-  <link rel="stylesheet" href="/static/styles.css">
-  <link rel="icon" type="image/png" href="/static/favicon.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="/static/favicon.png" />
+  <link rel="stylesheet" href="/static/styles.css" />
 </head>
 <body>
   <div class="auth-container">
     <h1>Вход в аккаунт</h1>
-    <form method="POST" class="auth-form">
-      <label>Email:</label>
-      <input type="email" name="email" required>
 
-      <label>Пароль:</label>
-      <input type="password" name="password" required>
+    <form method="POST" class="auth-form">
+      <label for="login-email">Email:</label>
+      <input id="login-email" type="email" name="email" required autofocus />
+
+      <label for="login-pass">Пароль:</label>
+      <input id="login-pass" type="password" name="password" required />
 
       <button type="submit">Войти</button>
     </form>
+
+    {# сообщения прямо под формой #}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="form-alert {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
     <p>Нет аккаунта? <a href="/register">Зарегистрироваться</a></p>
   </div>
 </body>
-{% with messages = get_flashed_messages(with_categories=true) %}
-  {% if messages %}
-    <div class="flash-messages">
-      {% for category, message in messages %}
-        <div class="flash {{ category }}">{{ message }}</div>
-      {% endfor %}
-    </div>
-  {% endif %}
-{% endwith %}
 </html>

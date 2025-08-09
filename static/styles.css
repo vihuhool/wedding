@@ -367,36 +367,40 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
   text-align: center;
   color: #222;
 }
-
-/* === FLASH overlay (центр экрана, с размытием) === */
-.flash-messages{
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
-  backdrop-filter: blur(6px);
-  background: rgba(0,0,0,0.2);
-}
-
-/* сама карточка сообщения */
-.flash{
-  max-width: 90%;
-  padding: 24px 36px;
-  border-radius: 16px;
-  font-size: 20px;
-  font-weight: 600;
+.form-alert{
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.4;
   text-align: center;
-  box-shadow: 0 12px 30px rgba(0,0,0,.2);
-  color: #222;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  border: 1px solid transparent;
 }
 
-/* варианты цветов (были такими) */
-.flash.success{ background-color: rgba(212,237,218,.95); } /* зелёный */
-.flash.danger { background-color: rgba(248,215,218,.95); } /* красный */
-.flash.info   { background-color: rgba(232,240,254,.95); } /* синий (если нужно) */
+/* цвета состояний */
+.form-alert.success{
+  background: #d4edda;
+  color: #155724;
+  border-color: #b7e1c1;
+}
+.form-alert.danger{
+  background: #fde2e2;            /* мягкий розовый фон */
+  color: #7a1b1b;                 /* читаемый тёмно-красный текст */
+  border-color: #f6c5c5;
+}
+.form-alert.info{
+  background:#e8f0fe;
+  color:#1a3a8a;
+  border-color:#c7d6fb;
+}
 
+/* На узких экранах просто тянется на всю ширину контейнера */
+.auth-container .form-alert{ width: 100%; box-sizing: border-box; }
+
+/* Глушим оверлей на auth-страницах */
+.auth-container + .flash-messages,
+.auth-container + .toast-overlay { display: none !important; }
 
 /* Цвета фона для разных типов */
 .toast.success { background-color: rgba(212, 237, 218, 0.95); } /* зелёный */

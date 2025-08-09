@@ -169,15 +169,18 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
 }
 
 .count-circle{
-  flex: 0 0 calc((100% - 3*var(--gap)) / 4); /* четверть строки */
-  width: auto;           /* ← больше НЕ фиксируем ширину */
-  max-width: none;       /* ← снимаем ограничение 92px */
+  /* ровно 4 круга в ряд */
+  flex: 0 0 calc((100% - 3*var(--gap)) / 4);
+  width: calc((100% - 3*var(--gap)) / 4);
+  max-width: 92px;
   min-width: 54px;
-  aspect-ratio: 1 / 1;   /* остаётся кругом */
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
-  /* остальное без изменений */
+  border: 2px solid #cdd8c9;
+  background: #fff6f7;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:8px; box-sizing:border-box;
 }
-
 .count-num{
   font-family: var(--font-ui);
   font-weight:700;
@@ -404,23 +407,34 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
    МЕЛКИЕ ДОПРАВКИ
 ========================= */
 /* очень узкие экраны: фото без отриц. отступов */
-@media (min-width: 768px){
-  .timer-wrapper{ --gap: 26px; justify-content: center; }
-  .count-circle{ flex-basis: 120px; } /* ~120px диаметр */
-  .count-num{ font-size: 38px; }
-  .count-label{ font-size: 18px; }
+@media (min-width: 900px){
+  .timer-wrapper{
+    --gap: 40px; /* чуть больше расстояние между кругами */
+    justify-content: space-evenly;
+    padding: 0 12px;
+  }
+  .count-circle{
+    flex: 0 0 140px; /* ширина круга */
+    width: 140px;
+  }
+  .count-num{
+    font-size: 42px; /* цифры крупнее */
+  }
+  .count-label{
+    font-size: 20px; /* подписи чуть крупнее */
+  }
 }
 
-@media (min-width: 1024px){
-  .timer-wrapper{ --gap: 34px; }
-  .count-circle{ flex-basis: 140px; } /* ~140px диаметр */
-  .count-num{ font-size: 42px; }
-  .count-label{ font-size: 20px; }
-}
-
-@media (min-width: 1280px){
-  .timer-wrapper{ --gap: 40px; }
-  .count-circle{ flex-basis: 160px; } /* ~160px диаметр */
-  .count-num{ font-size: 46px; }
-  .count-label{ font-size: 22px; }
+@media (min-width: 1200px){
+  .timer-wrapper{ --gap: 50px; }
+  .count-circle{
+    flex: 0 0 160px; /* ещё больше на очень больших экранах */
+    width: 160px;
+  }
+  .count-num{
+    font-size: 46px;
+  }
+  .count-label{
+    font-size: 22px;
+  }
 }

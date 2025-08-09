@@ -239,7 +239,7 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
   flex-wrap:wrap;
   font-family: var(--font-title);
   font-weight:700;
-  font-size: clamp(19px, 4.8vw, 24px); /* Чуть крупнее */
+  font-size: clamp(21px, 4.8vw, 26px); /* Чуть крупнее */
   line-height: 1.12;                  /* Плотнее */
 }
 
@@ -249,7 +249,7 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
   letter-spacing:.2px;
   margin-top: 10px;                    /* отступ между названием и описанием оставляем */
   font-size: clamp(14px, 3.6vw, 16px); /* Чуть меньше текста */
-  line-height: 1;                   /* Плотнее строки */
+  line-height: 1.1;                   /* Плотнее строки */
   color:#555;
 }
 

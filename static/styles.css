@@ -1,4 +1,6 @@
-/* ===== Фото-шапка ===== */
+/* =========================
+   ФОТО-ШАПКА
+========================= */
 .couple-photo{
   width: calc(100% + 40px);
   margin: 30px -20px;
@@ -11,14 +13,19 @@
   object-fit: cover;
 }
 
-/* ===== Шрифты и базовые переменные ===== */
+/* =========================
+   ШРИФТЫ / ПЕРЕМЕННЫЕ
+========================= */
 :root{
   --font-body: "Montserrat", Arial, sans-serif;
-  --font-title: "Caveat", cursive;        /* для всех заголовков и legends (есть кириллица) */
-  --font-ui: "Playpen Sans", sans-serif;  /* описания/формы */
+  --font-title: "Caveat", cursive;        /* заголовки и legend */
+  --font-ui: "Playpen Sans", sans-serif;  /* описания, формы, подписи */
+  --green-card: #c3d0a7d3;
 }
 
-/* ===== База ===== */
+/* =========================
+   БАЗА
+========================= */
 html{ -webkit-text-size-adjust: 100%; }
 body{
   font-family: var(--font-body);
@@ -35,19 +42,23 @@ body::before{
   z-index:-1; pointer-events:none;
 }
 
-/* ===== Заголовки ===== */
+/* =========================
+   ЗАГОЛОВКИ
+========================= */
 h1, h2, h3, legend{
   font-family: var(--font-title);
   font-weight: 700;
   letter-spacing:.25px;
   text-wrap: balance;
-  line-height: 1.15;                 /* поменьше межстрочный, чтобы не «прыгало» */
+  line-height: 1.15;
 }
 h1{ font-size: clamp(28px, 6vw, 60px); }
 h2{ font-size: clamp(22px, 4.8vw, 40px); }
 h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
 
-/* ===== Каркас карточки ===== */
+/* =========================
+   КОНТЕЙНЕР
+========================= */
 .main-container{
   background:#fff6f7;
   padding: clamp(20px,4vw,40px) 20px;
@@ -56,42 +67,36 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
   border-radius:15px;
   box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
-.main-container > h1{
-  text-align:center;
-  margin: 0 0 8px;
-}
-.main-container > h2{
-  text-align:center;
-  margin: -6px 0 14px;
-}
+.main-container > h1{ text-align:center; margin: 0 0 8px; }
+.main-container > h2{ text-align:center; margin: -6px 0 14px; }
 
-/* ===== Карточки-инфо (карта/текст) ===== */
+/* =========================
+   ИНФО-КАРТОЧКИ + КАРТЫ
+========================= */
 .event-info,
 .map-card{
-  background:#c3d0a7d3;
-  border:none;
-  border-radius:12px;
-  box-shadow:0 2px 6px rgba(0,0,0,.06);
-  padding:24px;
-  margin-bottom:30px;
+  background: var(--green-card);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  padding: 24px;
+  margin-bottom: 30px;
 }
-.event-info h3{
-  margin: 10px 0 16px;
-  text-align:center;
-}
+.event-info h3{ margin: 10px 0 16px; text-align: center; }
 .event-info p{
   font-family: var(--font-ui);
-  letter-spacing:.3px;
-  font-size:1.05rem;
+  letter-spacing: .3px;
+  font-size: 1.05rem;
   line-height: 1.5;
   color:#222;
 }
+
 .map-container{
   margin:15px 0;
   border-radius:10px;
   overflow:hidden;
 }
-/* страхуем ширину виджета Яндекса */
+/* на случай встроенных inline-стилей виджета */
 .map-container iframe,
 .map-container > div,
 .map-container script + *{
@@ -99,122 +104,144 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
   height:auto;
 }
 
-/* ===== Дресс-код ===== */
+/* =========================
+   ДРЕСС-КОД
+========================= */
 .dress-code{
-  background:#c3d0a7d3;
-  border-radius:12px;
-  box-shadow:0 2px 6px rgba(0,0,0,.06);
-  padding:28px 24px;
-  margin:36px 0;
-  text-align:center;
+  background: var(--green-card);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  padding: 28px 24px;
+  margin: 36px 0;
+  text-align: center;
 }
 .dress-code h3{ color:#222; margin: 8px 0 16px; }
 .dress-code p{
   font-family: var(--font-ui);
-  font-weight:400;
-  letter-spacing:.3px;
-  font-size:1.05rem;
-  line-height: 1.15;  
+  font-weight: 400;
+  letter-spacing: .3px;
+  font-size: 1.05rem;
+  line-height: 1.15;
   color:#222;
 }
 .color-palette{
-  display:flex; justify-content:center; gap:10px; list-style:none; padding:0; margin:0;
+  display:flex; justify-content:center; gap:10px;
+  list-style:none; padding:0; margin:0;
 }
 .color-palette li{
   position:relative;
   width: clamp(28px, 9vw, 54px);
-  aspect-ratio: 1/1;
-  border-radius:50%;
-  background:var(--swatch);
-  box-shadow:0 0 0 2px rgba(0,0,0,.05);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: var(--swatch);
+  box-shadow: 0 0 0 2px rgba(0,0,0,.05);
 }
 .color-palette li::before{
   content:""; position:absolute; inset:-6px; border-radius:50%; background:#fff; z-index:-1;
 }
 
-/* ===== Календарик-картинка ===== */
-.wedding-date{ text-align:center; margin:0 0 10px; }
+/* =========================
+   КАЛЕНДАРЬ-КАРТИНКА
+========================= */
+.wedding-date{ text-align:center; margin: 0 0 10px; }
 .wedding-date img{ width:100%; max-width:480px; height:auto; }
 
-/* ===== Таймер ===== */
+/* =========================
+   ТАЙМЕР
+========================= */
 .countdown{
   margin: 14px 0 40px;
-  padding:24px;
-  border-radius:20px;
-  background:#c3d0a7d3;
-  text-align:center;
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--green-card);
+  text-align: center;
 }
 .countdown h3{ margin: 4px 0 20px; color:#222; }
-.timer-wrapper {
-  flex-wrap: nowrap; /* запрещаем перенос */
+
+/* одна строка на телефоне */
+.timer-wrapper{
+  --gap: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: var(--gap);
+  flex-wrap: nowrap;
 }
 
-@media (max-width: 480px) {
-  .count-circle {
-    width: 60px; /* уменьшаем круги, чтобы влезли */
-    padding: 6px;
-  }
-
-  .count-num {
-    font-size: 24px; /* уменьшаем цифры */
-  }
-
-  .count-label {
-    font-size: 14px; /* уменьшаем подпись */
-  }
-}
 .count-circle{
-  flex: 1 1 110px;
-  min-width: 88px;
-  max-width: 140px;
-  aspect-ratio: 1/1;
-  border-radius:50%;
-  border:2px solid #cdd8c9;
-  background:#fff6f7;
+  /* ровно 4 круга в ряд */
+  flex: 0 0 calc((100% - 3*var(--gap)) / 4);
+  width: calc((100% - 3*var(--gap)) / 4);
+  max-width: 92px;
+  min-width: 54px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 2px solid #cdd8c9;
+  background: #fff6f7;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   padding:8px; box-sizing:border-box;
 }
 .count-num{
   font-family: var(--font-ui);
-  font-size: clamp(22px, 5.2vw, 34px);
-  font-weight:700; line-height:1.05; color:#465046;
+  font-weight:700;
+  line-height:1;
+  color:#465046;
+  font-size: clamp(16px, 5vw, 28px);
 }
 .count-label{
   font-family: var(--font-ui);
-  font-size: clamp(13px, 3.8vw, 18px);
-  color:#667066; letter-spacing:.3px; margin-top:2px; line-height:1.05;
+  color:#667066;
+  letter-spacing:.3px;
+  margin-top:2px;
+  font-size: clamp(11px, 3.6vw, 16px);
 }
 
-/* ===== RSVP ===== */
+/* просторнее на десктопе */
+@media (min-width: 900px){
+  .countdown{ padding: 28px 32px; }
+  .timer-wrapper{
+    --gap: 28px;
+    justify-content: space-evenly;
+    padding: 0 8px;
+  }
+  .count-circle{ flex: 0 0 110px; width:110px; }
+  .count-num{ font-size: 36px; }
+  .count-label{ font-size: 18px; }
+}
+@media (min-width: 1200px){
+  .timer-wrapper{ --gap: 40px; }
+  .count-circle{ flex: 0 0 130px; width:130px; }
+  .count-num{ font-size: 40px; }
+  .count-label{ font-size: 20px; }
+}
+
+/* =========================
+   RSVP ФОРМА
+========================= */
 .rsvp-form{
-  background:#c3d0a7d3;
+  background: var(--green-card);
   padding: clamp(18px, 4vw, 25px);
-  border-radius:14px;
+  border-radius: 14px;
 }
 .rsvp-form h3{ text-align:center; margin: 6px 0 22px; }
 
-/* legends — «те самые» шрифты и плотнее */
 .rsvp-form fieldset{
-  border:1px solid #e2e6d8;
-  border-radius:12px;
-  padding:18px 14px 8px;
-  margin-bottom:12px;
-  background-color: transparent;
+  border: 1px solid #e2e6d8;
+  border-radius: 12px;
+  padding: 18px 14px 8px;
+  margin-bottom: 12px;
+  background: transparent;
 }
 .rsvp-form legend{
-  display:block;
-  width:100%;
-  text-align:center;
-  margin: 0 0 10px;
-  padding: 0;
+  display:block; width:100%; text-align:center;
+  margin: 0 0 10px; padding: 0;
   font-family: var(--font-title);
   font-weight:700;
-  line-height:1.1;             /* плотнее, чтобы не «разносило» */
-  letter-spacing:.2px;
-  color:#222;
+  line-height:1.1;
+  letter-spacing:.2px; color:#222;
 }
 
-/* Инпуты */
+/* инпуты */
 .rsvp-form input[type="text"],
 .rsvp-form textarea,
 .rsvp-form select{
@@ -223,12 +250,12 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
   margin-top:6px;
   border:1px solid #ccc;
   border-radius:8px;
-  font-size:16px;                 /* чтобы iOS не зумил */
+  font-size:16px; /* чтобы iOS не зумил */
   box-sizing:border-box;
 }
 .rsvp-form textarea{ resize: vertical; }
 
-/* Пункты-«карточки» */
+/* пункты-«карточки» */
 .dish-option{
   display:block;
   background:#fff6f7;
@@ -239,48 +266,48 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
   margin-bottom:14px;
 }
 
-/* Заголовок блюда + эмодзи — компактная межстрочка */
+/* заголовок блюда компактнее, эмодзи рядом */
 .dish-header{
   display:flex; align-items:flex-start; gap:10px;
   font-family: var(--font-ui);
-  font-weight:600;
-  letter-spacing:.3px;
+  font-weight:600; letter-spacing:.3px;
 }
-.dish-header input[type="radio"]{ margin:4px 0 0 0; }
+.dish-header input[type="radio"]{ margin:4px 0 0; }
 
 .dish-title{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  flex-wrap:wrap;
+  display:inline-flex; align-items:center; gap:6px; flex-wrap:wrap;
   font-family: var(--font-title);
   font-weight:700;
-  font-size: clamp(21px, 4.8vw, 26px); /* Чуть крупнее */
-  line-height: 1.12;                  /* Плотнее */
+  font-size: clamp(21px, 4.8vw, 26px);
+  line-height: 1.12;
 }
 
 .dish-description{
   font-family: var(--font-ui);
   font-weight:400;
   letter-spacing:.2px;
-  margin-top: 10px;                    /* отступ между названием и описанием оставляем */
-  font-size: clamp(14px, 3.6vw, 16px); /* Чуть меньше текста */
-  line-height: 1.15;                   /* Плотнее строки */
+  margin-top:10px;                     /* отступ между названием и описанием */
+  font-size: clamp(14px, 3.6vw, 16px); /* меньше, чем заголовок */
+  line-height: 1.15;                   /* плотнее строки */
   color:#555;
 }
 
-/* Кнопка отправки */
+/* кнопка отправки */
 .rsvp-form button{
   display:block; margin:12px auto 0;
   font-family:"Yanone Kaffeesatz", sans-serif;
   font-size:1.2rem; font-weight:600;
-  background:#c3d0a7d3; color:#222;
+  background: var(--green-card); color:#222;
   padding:12px 30px; border:none; border-radius:10px; cursor:pointer;
-  transition:background .25s ease, transform .15s;
+  transition: background .25s ease, transform .15s;
   box-shadow:0 2px 4px rgba(0,0,0,.12);
 }
+.rsvp-form button:hover{ background:#b6c79ad3; }
+.rsvp-form button:active{ transform: translateY(1px); box-shadow:0 1px 2px rgba(0,0,0,.18); }
 
-/* === AUTH (login / register) — восстановлено === */
+/* =========================
+   AUTH (LOGIN / REGISTER)
+========================= */
 .auth-container{
   background:#fff6f7;
   max-width:520px;
@@ -289,102 +316,43 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
   border-radius:15px;
   box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
-
 .auth-container h1{
-  font-family: var(--font-title, "Caveat", cursive);
+  font-family: var(--font-title);
   font-weight:700;
   text-align:center;
   font-size: clamp(28px, 5vw, 40px);
-  margin:0 0 18px 0;
+  margin:0 0 18px;
   color:#222;
 }
-
-.auth-form{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
+.auth-form{ display:flex; flex-direction:column; gap:12px; }
 .auth-form label{
-  font-family: var(--font-body, "Montserrat", Arial, sans-serif);
-  font-size:14px;
-  color:#444;
+  font-family: var(--font-body);
+  font-size:14px; color:#444;
 }
-
 .auth-form input{
   width:100%;
   padding:12px 14px;
   border:1px solid #d7d7d7;
   border-radius:10px;
-  font-size:16px;                 /* 16px, чтобы iOS не зумил */
+  font-size:16px;
   box-sizing:border-box;
   background:#fff;
 }
-
 .auth-form button{
-  padding:12px 16px;
-  border:none;
-  border-radius:10px;
-  background:#c3d0a7d3;
-  color:#222;
-  font-size:16px;
-  font-weight:600;
-  cursor:pointer;
+  padding:12px 16px; border:none; border-radius:10px;
+  background: var(--green-card); color:#222;
+  font-size:16px; font-weight:600; cursor:pointer;
   transition: background .2s ease, transform .1s ease, box-shadow .2s ease;
   box-shadow:0 2px 4px rgba(0,0,0,.12);
 }
-
 .auth-form button:hover{ background:#b6c79ad3; }
 .auth-form button:active{ transform: translateY(1px); }
 
-.auth-container p{
-  margin-top:14px;
-  text-align:center;
-  font-size:.95rem;
-}
+.auth-container p{ margin-top:14px; text-align:center; font-size:.95rem; }
 .auth-container a{ color:#5a7f55; text-decoration:none; }
 .auth-container a:hover{ text-decoration:underline; }
 
-
-.rsvp-form button:hover{ background:#b6c79ad3; }
-.rsvp-form button:active{ transform: translateY(1px); box-shadow:0 1px 2px rgba(0,0,0,.18); }
-
-/* ===== Мелкие правки ===== */
-.logout-link{ margin-top:12px; font-size:14px; text-align:center; }
-.logout-link a{ color:#ff6b6b; text-decoration:none; opacity:.85; transition:opacity .2s; }
-.logout-link a:hover{ opacity:1; text-decoration:underline; }
-
-
-/* === TOAST overlay (flash messages) === */
-.toast-overlay {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
-  backdrop-filter: blur(6px);
-  background: rgba(0,0,0,0.2);
-  transition: opacity .3s ease;
-}
-
-.toast-overlay.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.toast {
-  background-color: #c3d0a7d3; /* твой зелёный */
-  color: #222;
-  padding: 24px 36px;
-  border-radius: 16px;
-  font-size: 20px;
-  font-weight: 600;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-  max-width: 90%;
-  text-align: center;
-}
-
+/* сообщение об ошибке под формой */
 .form-alert{
   margin-top: 12px;
   padding: 12px 14px;
@@ -395,92 +363,50 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
   box-shadow: 0 2px 6px rgba(0,0,0,.06);
   border: 1px solid transparent;
 }
+.form-alert.success{ background:#d4edda; color:#155724; border-color:#b7e1c1; }
+.form-alert.danger { background:#fde2e2; color:#7a1b1b; border-color:#f6c5c5; }
+.form-alert.info   { background:#e8f0fe; color:#1a3a8a; border-color:#c7d6fb; }
 
-/* цвета состояний */
-.form-alert.success{
-  background: #d4edda;
-  color: #155724;
-  border-color: #b7e1c1;
-}
-.form-alert.danger{
-  background: #fde2e2;            /* мягкий розовый фон */
-  color: #7a1b1b;                 /* читаемый тёмно-красный текст */
-  border-color: #f6c5c5;
-}
-.form-alert.info{
-  background:#e8f0fe;
-  color:#1a3a8a;
-  border-color:#c7d6fb;
-}
+/* =========================
+   ЛОГАУТ ССЫЛКА
+========================= */
+.logout-link{ margin-top:12px; font-size:14px; text-align:center; }
+.logout-link a{ color:#ff6b6b; text-decoration:none; opacity:.85; transition:opacity .2s; }
+.logout-link a:hover{ opacity:1; text-decoration:underline; }
 
-.timer-wrapper{
-  --gap: 10px;                 /* расстояние между кружками */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--gap);
-  flex-wrap: nowrap;           /* запрещаем перенос */
+/* =========================
+   ТОСТ-ОВЕРЛЕЙ (FLASH)
+========================= */
+.toast-overlay{
+  position: fixed; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 10000;
+  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.2);
+  transition: opacity .3s ease;
 }
+.toast-overlay.hidden{ opacity:0; pointer-events:none; }
 
-/* Каждый круг занимает ровно 1/4 строки минус зазоры */
-.count-circle{
-  flex: 0 0 calc((100% - 3*var(--gap)) / 4);
-  width: calc((100% - 3*var(--gap)) / 4);
-  max-width: 92px;             /* на широких экранах не раздуваемся */
-  min-width: 54px;             /* на очень узких — можно ужаться, но остаётся круг */
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  border: 2px solid #cdd8c9;
-  background: #fff6f7;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 8px;
-  box-sizing: border-box;
+.toast{
+  background-color: var(--green-card); /* зелёный, как просил */
+  color:#222;
+  padding: 24px 36px;
+  border-radius: 16px;
+  font-size: 20px;
+  font-weight: 600;
+  box-shadow: 0 12px 30px rgba(0,0,0,.2);
+  max-width: 90%;
+  text-align: center;
 }
 
-/* Размеры шрифтов под ширину экрана, чтобы не ломало ряд */
-.count-num{
-  font-family: "Playpen Sans", sans-serif;
-  font-weight: 700;
-  line-height: 1;
-  color: #465046;
-  font-size: clamp(16px, 5vw, 28px);
-}
-
-.count-label{
-  font-family: "Playpen Sans", sans-serif;
-  color: #667066;
-  letter-spacing: .3px;
-  margin-top: 2px;
-  font-size: clamp(11px, 3.6vw, 16px);
-}
-
-/* На планшетах/десктопе делаем кружки покрупнее, фиксированной ширины */
-@media (min-width: 600px){
-  .count-circle{
-    flex: 0 0 90px;
-    width: 90px;
-  }
-  .count-num{ font-size: 34px; }
-  .count-label{ font-size: 20px; }
-}
-
-
-/* На узких экранах просто тянется на всю ширину контейнера */
-.auth-container .form-alert{ width: 100%; box-sizing: border-box; }
-
-/* Глушим оверлей на auth-страницах */
+/* отключаем всплывающий оверлей на auth-страницах */
 .auth-container + .flash-messages,
-.auth-container + .toast-overlay { display: none !important; }
+.auth-container + .toast-overlay{ display:none !important; }
 
-/* Цвета фона для разных типов */
-.toast.success { background-color: rgba(212, 237, 218, 0.95); } /* зелёный */
-.toast.danger  { background-color: rgba(248, 215, 218, 0.95); } /* красный */
-.toast.info    { background-color: rgba(232, 240, 254, 0.95); } /* синий */
-/* Очень узкие экраны: фото без отриц. отступов */
+/* =========================
+   МЕЛКИЕ ДОПРАВКИ
+========================= */
+/* очень узкие экраны: фото без отриц. отступов */
 @media (max-width:420px){
   .couple-photo{ width:100%; margin:20px 0; }
 }

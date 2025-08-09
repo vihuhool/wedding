@@ -50,24 +50,24 @@ def share():
     return render_template("share.html")
 
 
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
-        hashed = generate_password_hash(password)
-        conn = sqlite3.connect(DB_PATH)
-        cursor = conn.cursor()
-        try:
-            cursor.execute("INSERT INTO users (email, password_hash) VALUES (?, ?)", (email, hashed))
-            conn.commit()
-            flash('Регистрация успешна. Теперь войдите.', 'success')
-            return redirect(url_for('login'))
-        except sqlite3.IntegrityError:
-            flash('Пользователь уже существует.', 'danger')
-        finally:
-            conn.close()
-    return render_template('register.html')
+# @app.route('/register', methods=['GET', 'POST'])
+# def register():
+#     if request.method == 'POST':
+#         email = request.form['email']
+#         password = request.form['password']
+#         hashed = generate_password_hash(password)
+#         conn = sqlite3.connect(DB_PATH)
+#         cursor = conn.cursor()
+#         try:
+#             cursor.execute("INSERT INTO users (email, password_hash) VALUES (?, ?)", (email, hashed))
+#             conn.commit()
+#             flash('Регистрация успешна. Теперь войдите.', 'success')
+#             return redirect(url_for('login'))
+#         except sqlite3.IntegrityError:
+#             flash('Пользователь уже существует.', 'danger')
+#         finally:
+#             conn.close()
+#     return render_template('register.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

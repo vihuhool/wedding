@@ -10,27 +10,24 @@
 <body>
   <div class="auth-container">
     <h1>Вход в аккаунт</h1>
-
     <form method="POST" class="auth-form">
-      <label for="login-email">Email:</label>
-      <input id="login-email" type="email" name="email" required autofocus />
+      <label>Email:</label>
+      <input type="email" name="email" required />
 
-      <label for="login-pass">Пароль:</label>
-      <input id="login-pass" type="password" name="password" required />
+      <label>Пароль:</label>
+      <input type="password" name="password" required />
 
       <button type="submit">Войти</button>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="form-alert {{ category }}">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
     </form>
-
-    {# сообщения прямо под формой #}
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        {% for category, message in messages %}
-          <div class="form-alert {{ category }}">{{ message }}</div>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
-
-    <p>Нет аккаунта? <a href="/register">Зарегистрироваться</a></p>
+    <!-- никаких ссылок на регистрацию -->
   </div>
 </body>
 </html>

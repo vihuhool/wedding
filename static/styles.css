@@ -338,6 +338,41 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
 .logout-link a{ color:#ff6b6b; text-decoration:none; opacity:.85; transition:opacity .2s; }
 .logout-link a:hover{ opacity:1; text-decoration:underline; }
 
+
+/* === TOAST overlay (flash messages) === */
+.toast-overlay{
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.2);
+  transition: opacity .3s ease;
+}
+
+.toast-overlay.hidden{
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toast{
+  max-width: 90%;
+  padding: 24px 36px;
+  border-radius: 16px;
+  font-size: 20px;
+  font-weight: 600;
+  box-shadow: 0 12px 30px rgba(0,0,0,.2);
+  text-align: center;
+}
+
+/* варианты цветов */
+.toast.success{ background:#d4edda; color:#155724; }
+.toast.danger { background:#f8d7da; color:#721c24; }
+.toast.info   { background:#e8f0fe; color:#1a73e8; }
+
+
 /* Очень узкие экраны: фото без отриц. отступов */
 @media (max-width:420px){
   .couple-photo{ width:100%; margin:20px 0; }

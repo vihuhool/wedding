@@ -407,6 +407,34 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
    МЕЛКИЕ ДОПРАВКИ
 ========================= */
 /* очень узкие экраны: фото без отриц. отступов */
-@media (max-width:420px){
-  .couple-photo{ width:100%; margin:20px 0; }
+@media (min-width: 900px){
+  .timer-wrapper{
+    --gap: 40px; /* чуть больше расстояние между кругами */
+    justify-content: space-evenly;
+    padding: 0 12px;
+  }
+  .count-circle{
+    flex: 0 0 140px; /* ширина круга */
+    width: 140px;
+  }
+  .count-num{
+    font-size: 42px; /* цифры крупнее */
+  }
+  .count-label{
+    font-size: 20px; /* подписи чуть крупнее */
+  }
+}
+
+@media (min-width: 1200px){
+  .timer-wrapper{ --gap: 50px; }
+  .count-circle{
+    flex: 0 0 160px; /* ещё больше на очень больших экранах */
+    width: 160px;
+  }
+  .count-num{
+    font-size: 46px;
+  }
+  .count-label{
+    font-size: 22px;
+  }
 }

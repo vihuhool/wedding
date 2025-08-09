@@ -340,7 +340,7 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
 
 
 /* === TOAST overlay (flash messages) === */
-.toast-overlay{
+.toast-overlay {
   position: fixed;
   inset: 0;
   display: flex;
@@ -352,12 +352,12 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
   transition: opacity .3s ease;
 }
 
-.toast-overlay.hidden{
+.toast-overlay.hidden {
   opacity: 0;
   pointer-events: none;
 }
 
-.toast{
+.toast {
   max-width: 90%;
   padding: 24px 36px;
   border-radius: 16px;
@@ -365,14 +365,43 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
   font-weight: 600;
   box-shadow: 0 12px 30px rgba(0,0,0,.2);
   text-align: center;
+  color: #222;
 }
 
-/* варианты цветов */
-.toast.success{ background:#d4edda; color:#155724; }
-.toast.danger { background:#f8d7da; color:#721c24; }
-.toast.info   { background:#e8f0fe; color:#1a73e8; }
+/* === FLASH overlay (центр экрана, с размытием) === */
+.flash-messages{
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.2);
+}
+
+/* сама карточка сообщения */
+.flash{
+  max-width: 90%;
+  padding: 24px 36px;
+  border-radius: 16px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,.2);
+  color: #222;
+}
+
+/* варианты цветов (были такими) */
+.flash.success{ background-color: rgba(212,237,218,.95); } /* зелёный */
+.flash.danger { background-color: rgba(248,215,218,.95); } /* красный */
+.flash.info   { background-color: rgba(232,240,254,.95); } /* синий (если нужно) */
 
 
+/* Цвета фона для разных типов */
+.toast.success { background-color: rgba(212, 237, 218, 0.95); } /* зелёный */
+.toast.danger  { background-color: rgba(248, 215, 218, 0.95); } /* красный */
+.toast.info    { background-color: rgba(232, 240, 254, 0.95); } /* синий */
 /* Очень узкие экраны: фото без отриц. отступов */
 @media (max-width:420px){
   .couple-photo{ width:100%; margin:20px 0; }

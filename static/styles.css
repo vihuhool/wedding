@@ -406,27 +406,24 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
 /* =========================
    МЕЛКИЕ ДОПРАВКИ
 ========================= */
-/* очень узкие экраны: фото без отриц. отступов */
 @media (min-width: 900px){
   .countdown{ padding: 28px 32px; }
+
   .timer-wrapper{
     --gap: 28px;              /* расстояние между кругами */
-    justify-content: space-between;
-    padding: 0 8px;
+    justify-content: center;  /* без доп. растягивания */
+    padding: 0;               /* важно: убираем внутренние отступы */
   }
-  /* ВАЖНО: не задаём fixed width — только потолок */
-  .count-circle{
-    max-width: 110px;         /* могло быть 92px — поднимем потолок */
-  }
-  .count-num{ font-size: 36px; }
-  .count-label{ font-size: 18px; }
+
+  /* только потолок, ширину не фиксируем */
+  .count-circle{ max-width: 120px; }
+  .count-num   { font-size: 36px; }
+  .count-label { font-size: 18px; }
 }
 
 @media (min-width: 1200px){
-  .timer-wrapper{ --gap: 34px; } /* было 40 — чтобы точно влезало */
-  .count-circle{
-    max-width: 130px;         /* растут, но не выходят за пределы карточки */
-  }
-  .count-num{ font-size: 40px; }
-  .count-label{ font-size: 20px; }
+  .timer-wrapper{ --gap: 32px; padding: 0; }
+  .count-circle{ max-width: 132px; }
+  .count-num   { font-size: 40px; }
+  .count-label { font-size: 20px; }
 }

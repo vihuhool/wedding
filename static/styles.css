@@ -358,15 +358,17 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
 }
 
 .toast {
-  max-width: 90%;
+  background-color: #c3d0a7d3; /* твой зелёный */
+  color: #222;
   padding: 24px 36px;
   border-radius: 16px;
   font-size: 20px;
   font-weight: 600;
-  box-shadow: 0 12px 30px rgba(0,0,0,.2);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
   text-align: center;
-  color: #222;
 }
+
 .form-alert{
   margin-top: 12px;
   padding: 12px 14px;

@@ -249,7 +249,7 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
   letter-spacing:.2px;
   margin-top: 10px;                    /* отступ между названием и описанием оставляем */
   font-size: clamp(14px, 3.6vw, 16px); /* Чуть меньше текста */
-  line-height: 1.25;                   /* Плотнее строки */
+  line-height: 0.7;                   /* Плотнее строки */
   color:#555;
 }
 

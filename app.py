@@ -45,6 +45,11 @@ def load_user(user_id):
 def index():
     return render_template('index.html')
 
+@app.route("/share")
+def share():
+    # Публичная страница только для красивого превью в соцсетях
+    return render_template("share.html")
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':

@@ -425,16 +425,16 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
   }
 }
 
-@media (min-width: 1200px){
-  .timer-wrapper{ --gap: 50px; }
-  .count-circle{
-    flex: 0 0 160px; /* ещё больше на очень больших экранах */
-    width: 160px;
+@media (min-width: 1024px) {
+  .count-circle {
+    flex: 0 0 140px; /* ширина и высота круга */
+    width: 140px;
+    aspect-ratio: 1 / 1; /* гарантирует, что круг не станет овалом */
   }
-  .count-num{
-    font-size: 46px;
+  .count-num {
+    font-size: 42px;
   }
-  .count-label{
-    font-size: 22px;
+  .count-label {
+    font-size: 20px;
   }
 }

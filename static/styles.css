@@ -1,8 +1,8 @@
-/* === фото-обложка (чуть шире контейнера) === */
+/* ===== Фото-шапка ===== */
 .couple-photo{
   width: calc(100% + 40px);
   margin: 30px -20px;
-  overflow:hidden;
+  overflow: hidden;
 }
 .couple-photo img{
   width: 100%;
@@ -11,11 +11,15 @@
   object-fit: cover;
 }
 
-/* === базовая типографика === */
+/* ===== Шрифты и базовые переменные ===== */
 :root{
   --font-body: "Montserrat", Arial, sans-serif;
-  --font-title: "Caveat", cursive;
+  --font-title: "Caveat", cursive;        /* h1/h2 */
+  --font-hand: "Great Vibes", cursive;    /* h3, легенды */
+  --font-ui: "Playpen Sans", sans-serif;  /* описания/формы */
 }
+
+/* ===== База ===== */
 html { -webkit-text-size-adjust: 100%; }
 body{
   font-family: var(--font-body);
@@ -28,76 +32,72 @@ body{
 body::before{
   content:"";
   position:fixed; inset:0;
-  background: rgba(0,0,0,0.10);
+  background: rgba(0,0,0,.10);
   z-index:-1; pointer-events:none;
 }
 
-/* заголовки */
-h1,h2,h3,legend{
+/* ===== Заголовки ===== */
+h1, h2{
   font-family: var(--font-title);
   font-weight:700;
   letter-spacing:.4px;
-  line-height:1.15;
-  text-wrap: balance;               /* мягкие переносы без вываливания */
+  text-wrap: balance;
 }
-h1{ font-size:clamp(28px,6vw,46px); }
-h2{ font-size:clamp(22px,5vw,34px); }
-h3,legend{ font-size:clamp(22px,4.6vw,32px); }
+h3, legend{
+  font-family: var(--font-hand);
+  font-weight:700;
+  letter-spacing:.2px;
+  text-wrap: balance;
+}
 
-/* основной контейнер */
+h1{ font-size: clamp(28px, 6vw, 60px); }
+h2{ font-size: clamp(22px, 4.8vw, 40px); }
+h3, legend{ font-size: clamp(24px, 5.4vw, 42px); }
+
+/* ===== Каркас карточки ===== */
 .main-container{
   background:#fff6f7;
   padding: clamp(20px,4vw,40px) 20px;
-  max-width: 640px;
-  margin: 36px auto;
+  max-width:640px;
+  margin:60px auto;
   border-radius:15px;
   box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 .main-container > h1{
   text-align:center;
-  margin:0 0 6px 0;
+  margin: 0 0 8px;
 }
 .main-container > h2{
   text-align:center;
-  margin:0 0 8px 0;                /* убрал отрицательный margin */
-}
-.main-container p{
-  margin-bottom: 18px;
-  color:#444;
+  margin: -6px 0 14px;
 }
 
-/* ссылка выхода */
-.logout-link{ margin-top:12px; font-size:14px; text-align:center; }
-.logout-link a{ color:#ff6b6b; text-decoration:none; opacity:.85; transition:opacity .2s; }
-.logout-link a:hover{ opacity:1; text-decoration:underline; }
-
-/* === универсальная «карточка» (как у первой карты) === */
-.card{
+/* ===== Карточки-инфо (карта/текст) ===== */
+.event-info,
+.map-card{
   background:#c3d0a7d3;
+  border:none;
   border-radius:12px;
   box-shadow:0 2px 6px rgba(0,0,0,.06);
   padding:24px;
-  margin:20px 0 30px;
+  margin-bottom:30px;
 }
-.card h3{
+.event-info h3{
+  margin: 10px 0 16px;
   text-align:center;
-  margin:8px 0 16px;
 }
-
-/* первая секция места проведения использует .card через .event-info */
-.event-info{ composes: card; }      /* (логическая пометка; для CSS — просто тот же блок) */
-.event-info{ background:#c3d0a7d3; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,.06); padding:24px; margin:20px 0 30px; }
-.event-info h3{ text-align:center; margin:8px 0 16px; }
-
-/* «карточка карты» для встраиваемых карт — чтобы вторая выглядела как первая */
-.map-embed{
-  background:#c3d0a7d3;
-  border-radius:12px;
-  box-shadow:0 2px 6px rgba(0,0,0,.06);
-  padding:16px;
-  margin:14px 0 6px;
+.event-info p{
+  font-family: var(--font-ui);
+  letter-spacing:.3px;
+  font-size:1.05rem;
+  color:#222;
 }
-.map-container{ margin:10px 0; border-radius:10px; overflow:hidden; }
+.map-container{
+  margin:15px 0;
+  border-radius:10px;
+  overflow:hidden;
+}
+/* страхуем ширину виджета Яндекса */
 .map-container iframe,
 .map-container > div,
 .map-container script + *{
@@ -105,70 +105,105 @@ h3,legend{ font-size:clamp(22px,4.6vw,32px); }
   height:auto;
 }
 
-/* блок даты/картинка-календарь */
-.wedding-date{ text-align:center; margin:8px 0 10px; }
-.wedding-date img{ width:100%; max-width:480px; height:auto; }
-
-/* === таймер === */
-.countdown{ background:#c3d0a7d3; border-radius:20px; padding:20px; text-align:center; margin:22px 0 30px; }
-.countdown h3{ margin:4px 0 18px; }
-
-.timer-wrapper{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  flex-wrap:nowrap;                /* всегда в одну строку */
+/* ===== Дресс-код ===== */
+.dress-code{
+  background:#c3d0a7d3;
+  border-radius:12px;
+  box-shadow:0 2px 6px rgba(0,0,0,.06);
+  padding:28px 24px;
+  margin:36px 0;
+  text-align:center;
+}
+.dress-code h3{ color:#222; margin: 8px 0 16px; }
+.dress-code p{
+  font-family: var(--font-ui);
+  font-weight:400;
+  letter-spacing:.3px;
+  font-size:1.05rem;
+  color:#222;
+}
+.color-palette{
+  display:flex; justify-content:center; gap:10px; list-style:none; padding:0; margin:0;
+}
+.color-palette li{
+  position:relative;
+  width: clamp(28px, 9vw, 54px);
+  aspect-ratio: 1/1;
+  border-radius:50%;
+  background:var(--swatch);
+  box-shadow:0 0 0 2px rgba(0,0,0,.05);
+}
+.color-palette li::before{
+  content:""; position:absolute; inset:-6px; border-radius:50%; background:#fff; z-index:-1;
 }
 
-/* круги фиксированного размера, чтобы не «сплющивались» */
+/* ===== Календарик-картинка ===== */
+.wedding-date{ text-align:center; margin:0 0 10px; }
+.wedding-date img{ width:100%; max-width:480px; height:auto; }
+
+/* ===== Таймер ===== */
+.countdown{
+  margin: 14px 0 40px;
+  padding:24px;
+  border-radius:20px;
+  background:#c3d0a7d3;
+  text-align:center;
+}
+.countdown h3{
+  margin: 4px 0 20px;
+  color:#222;
+}
+.timer-wrapper{
+  display:flex;
+  flex-wrap: wrap;            /* позволит уйти в 2 строки при узких экранах */
+  justify-content: center;
+  gap:14px;
+}
 .count-circle{
-  flex: 0 0 72px;                  /* ширина круга */
-  width:72px;
-  aspect-ratio:1/1;                /* круг */
+  flex: 1 1 110px;            /* растёт, но имеет базу */
+  min-width: 88px;            /* можно уменьшать при очень узких экранах */
+  max-width: 140px;
+  aspect-ratio: 1/1;
   border-radius:50%;
   border:2px solid #cdd8c9;
   background:#fff6f7;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  padding:6px;
-  box-sizing:border-box;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:8px; box-sizing:border-box;
 }
-@media (min-width:420px){
-  .count-circle{ flex-basis:78px; width:78px; }
+.count-num{
+  font-family: var(--font-ui);
+  font-size: clamp(22px, 5.2vw, 34px);
+  font-weight:700; line-height:1; color:#465046;
 }
-@media (min-width:520px){
-  .count-circle{ flex-basis:86px; width:86px; }
+.count-label{
+  font-family: var(--font-ui);
+  font-size: clamp(13px, 3.8vw, 18px);
+  color:#667066; letter-spacing:.3px; margin-top:2px;
 }
 
-.count-num{ font-family:"Playpen Sans",sans-serif; font-size:clamp(20px,5.2vw,28px); font-weight:700; line-height:1; color:#465046; }
-.count-label{ font-family:"Playpen Sans",sans-serif; font-size:clamp(12px,3.8vw,16px); color:#667066; letter-spacing:.2px; margin-top:2px; }
-
-/* === RSVP форма === */
+/* ===== RSVP ===== */
 .rsvp-form{
   background:#c3d0a7d3;
-  padding: clamp(16px,4vw,25px);
+  padding: clamp(18px, 4vw, 25px);
   border-radius:14px;
 }
-.rsvp-form h3{ text-align:center; margin:6px 0 20px; }
-
+.rsvp-form h3{ text-align:center; margin: 6px 0 22px; }
 .rsvp-form fieldset{
-  border:1px solid #dfe6d5;
+  border:1px solid #e2e6d8;
   border-radius:12px;
-  padding:16px 12px 10px;
-  margin:12px 0;
-  background:rgba(255,255,255,.12);
+  padding:18px 14px 6px;
+  margin-bottom:12px;
+  background-color: transparent;
 }
 .rsvp-form legend{
-  display:inline-block;
-  padding:4px 12px;
-  font-weight:700;
-  margin:0 0 6px;
+  display:block;
+  width:100%;
+  text-align:center;
+  margin-bottom:6px;
+  color:#222;
 }
 
-/* инпуты */
+/* Инпуты */
 .rsvp-form input[type="text"],
 .rsvp-form textarea,
 .rsvp-form select{
@@ -177,94 +212,61 @@ h3,legend{ font-size:clamp(22px,4.6vw,32px); }
   margin-top:6px;
   border:1px solid #ccc;
   border-radius:8px;
-  font-size:16px;             /* чтобы iOS не зумил */
+  font-size:16px;                 /* чтобы iOS не зумил */
   box-sizing:border-box;
 }
-.rsvp-form textarea{ resize:vertical; }
+.rsvp-form textarea{ resize: vertical; }
 
-/* пункт-выбор (карточка) */
+/* Пункты-«карточки» */
 .dish-option{
   display:block;
   background:#fff6f7;
-  border-radius:12px;
+  border-radius:10px;
   border:none;
   box-shadow:0 2px 6px rgba(0,0,0,.06);
-  padding:16px;
-  margin:12px 0;
+  padding:14px;
+  margin-bottom:14px;
 }
-
-/* заголовок блюда + эмодзи на одной строке, без отрыва */
 .dish-header{
-  display:flex; align-items:center; gap:8px; flex-wrap:nowrap;
+  display:flex; align-items:center; gap:10px;
+  font-family: var(--font-ui); font-weight:600; letter-spacing:.3px;
 }
 .dish-header input[type="radio"]{ margin:0; }
-
 .dish-title{
-  display:inline-flex; align-items:center; gap:6px;
-  font-family:"Caveat",sans-serif;
-  letter-spacing:.4px;
+  display:inline-flex; align-items:center; gap:6px; flex-wrap:wrap;
+  font-family: var(--font-title);        /* акцентный рукописный */
   font-weight:700;
-  font-size:clamp(18px,4.8vw,22px);     /* меньше, чем было */
-  white-space:nowrap;                    /* не рвём слово и эмодзи */
+  font-size: clamp(18px, 4.5vw, 22px);   /* заголовок крупнее описания */
+  line-height:1.25;
 }
-
-/* описание блюда — всегда мельче заголовка */
 .dish-description{
-  font-family:"Playpen Sans",sans-serif;
+  font-family: var(--font-ui);
   font-weight:400;
   letter-spacing:.3px;
   margin-top:6px;
-  font-size:clamp(14px,4.2vw,16px);
+  font-size: clamp(15px, 4vw, 17px);     /* меньше заголовка */
   color:#555;
 }
 
-/* кнопка отправки */
+/* Кнопка отправки */
 .rsvp-form button{
-  display:block; margin:10px auto 0;
-  font-family:"Yanone Kaffeesatz",sans-serif;
+  display:block; margin:12px auto 0;
+  font-family:"Yanone Kaffeesatz", sans-serif;
   font-size:1.2rem; font-weight:600;
   background:#c3d0a7d3; color:#222;
-  padding:12px 28px; border:none; border-radius:10px;
-  cursor:pointer; transition:background .25s ease, transform .15s;
+  padding:12px 30px; border:none; border-radius:10px; cursor:pointer;
+  transition:background .25s ease, transform .15s;
   box-shadow:0 2px 4px rgba(0,0,0,.12);
 }
 .rsvp-form button:hover{ background:#b6c79ad3; }
-.rsvp-form button:active{ transform:translateY(1px); box-shadow:0 1px 2px rgba(0,0,0,.18); }
+.rsvp-form button:active{ transform: translateY(1px); box-shadow:0 1px 2px rgba(0,0,0,.18); }
 
-/* блок доп. опций вина */
-#wine-options{
-  background:#fff6f7;
-  border-radius:10px;
-  box-shadow:0 2px 6px rgba(0,0,0,.06);
-  padding:16px; margin-bottom:16px;
-  display:flex; flex-direction:column; gap:18px;
-}
-#wine-options label{
-  font-family:"Playpen Sans",sans-serif;
-  font-size:1.05rem; font-weight:500;
-  display:flex; flex-direction:column; gap:8px;
-}
-#wine-options select{
-  border:1px solid #d4d4d4; box-shadow:none;
-  border-radius:10px; padding:12px 14px;
-  font-size:1rem; font-family:"Playpen Sans",sans-serif;
-  appearance:none; outline:none; transition:border-color .15s ease;
-}
-#wine-options select:hover,
-#wine-options select:focus{ border-color:#ff6b6b; }
+/* ===== Мелкие правки ===== */
+.logout-link{ margin-top:12px; font-size:14px; text-align:center; }
+.logout-link a{ color:#ff6b6b; text-decoration:none; opacity:.85; transition:opacity .2s; }
+.logout-link a:hover{ opacity:1; text-decoration:underline; }
 
-/* палитра цветов */
-.color-palette{ display:flex; justify-content:center; gap:10px; list-style:none; padding:0; margin:0; }
-.color-palette li{ position:relative; width:clamp(28px,9vw,44px); aspect-ratio:1/1; border-radius:50%; background:var(--swatch); box-shadow:0 0 0 2px rgba(0,0,0,.05); }
-.color-palette li::before{ content:""; position:absolute; inset:-6px; border-radius:50%; background:#fff; z-index:-1; }
-
-/* тосты */
-.toast-overlay{ position:fixed; inset:0; backdrop-filter:blur(6px); background:rgba(0,0,0,.2); display:flex; align-items:center; justify-content:center; z-index:10000; transition:opacity .3s; }
-.toast-overlay.hidden{ opacity:0; pointer-events:none; }
-.toast{ background:#d4edda; color:#155724; padding:24px 36px; border-radius:16px; font-size:20px; font-weight:600; box-shadow:0 12px 30px rgba(0,0,0,.2); max-width:90%; text-align:center; }
-
-/* мелкие правки на очень узких экранах */
-@media (max-width:360px){
+/* Пара нюансов для очень узких экранов */
+@media (max-width:420px){
   .couple-photo{ width:100%; margin:20px 0; }
-  .card, .event-info, .rsvp-form{ padding:16px; }
 }

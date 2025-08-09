@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Свадебное приглашение</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ВАЖНО: сначала preconnect, затем шрифты -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@400;500;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&family=Playpen+Sans:wght@400;500;600&family=Yanone+Kaffeesatz:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="/static/favicon.png">
   <link rel="stylesheet" href="/static/styles.css">
 </head>
@@ -31,21 +31,27 @@
       <img src="/static/calendar.png" alt="2 ноября 2025 г., 14:00">
     </div>
 
-    <!-- Первая карта в карточке -->
-    <div class="event-info card">
+    <!-- Карточка №1: площадка -->
+    <section class="event-info">
       <h3>Место проведения</h3>
-      <p>Банкетный зал "Лея"<br>Свердловская наб., 62, Санкт-Петербург<br>Время: 14:00</p>
+      <p>
+        Банкетный зал «Лея»<br>
+        Свердловская наб., 62, Санкт-Петербург<br>
+        Время: 14:00
+      </p>
       <div class="map-container">
         <script type="text/javascript" charset="utf-8"
           src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A317e1229c0303a240f835b1636f362c2167f79794723a2f41b3fedb117de73ea&width=100%25&height=400&lang=ru_RU&scroll=true" async>
         </script>
       </div>
-    </div>
+    </section>
 
     <!-- Дресс-код -->
-    <section class="dress-code card">
+    <section class="dress-code">
       <h3>Дресс-код</h3>
-      <p>Наш зал выполнен в бежевых тонах с акцентами светом<br>Предлагаем использовать пастельные или природные тона, например:</p>
+      <p>Наш зал выполнен в бежевых тонах с акцентами светом.<br>
+         Предлагаем использовать пастельные или природные тона, например:</p>
+
       <ul class="color-palette">
         <li style="--swatch:#000000"></li>
         <li style="--swatch:#7E7E7E"></li>
@@ -59,29 +65,17 @@
     </section>
 
     <!-- Таймер -->
-    <div class="countdown">
+    <section class="countdown">
       <h3>До торжества осталось</h3>
       <div class="timer-wrapper">
-        <div class="count-circle">
-          <span id="days" class="count-num">--</span>
-          <span class="count-label">дней</span>
-        </div>
-        <div class="count-circle">
-          <span id="hours" class="count-num">--</span>
-          <span class="count-label">часов</span>
-        </div>
-        <div class="count-circle">
-          <span id="minutes" class="count-num">--</span>
-          <span class="count-label">минут</span>
-        </div>
-        <div class="count-circle">
-          <span id="seconds" class="count-num">--</span>
-          <span class="count-label">секунд</span>
-        </div>
+        <div class="count-circle"><span id="days" class="count-num">--</span><span class="count-label">дней</span></div>
+        <div class="count-circle"><span id="hours" class="count-num">--</span><span class="count-label">часов</span></div>
+        <div class="count-circle"><span id="minutes" class="count-num">--</span><span class="count-label">минут</span></div>
+        <div class="count-circle"><span id="seconds" class="count-num">--</span><span class="count-label">секунд</span></div>
       </div>
-    </div>
+    </section>
 
-    <!-- RSVP -->
+    <!-- Форма -->
     <form action="/submit_rsvp" method="POST" class="rsvp-form">
       <h3>Анкета участника</h3>
 
@@ -95,31 +89,29 @@
         </label>
       </fieldset>
 
+      <!-- Карта ЗАГС — такой же стиль карточки -->
+      <div class="map-card">
+        <div class="map-container">
+          <script type="text/javascript" charset="utf-8"
+            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac24b9137d17b99530b38d8c411a0228f6efc6bbc99fbd93066fed2a8002b6d2d&width=100%25&height=400&lang=ru_RU&scroll=true" async>
+          </script>
+        </div>
+      </div>
+
       <fieldset>
         <legend>💍 Присутствие в ЗАГСе (12:40)</legend>
-
         <label class="dish-option">
           <div class="dish-header">
             <input type="radio" name="zags" value="да" required>
             <span class="dish-title">Хочу присутствовать</span>
           </div>
         </label>
-
         <label class="dish-option">
           <div class="dish-header">
             <input type="radio" name="zags" value="нет" required>
             <span class="dish-title">Не планирую</span>
           </div>
         </label>
-
-        <!-- Вторая карта — в такой же карточке, как первая -->
-        <div class="map-embed">
-          <div class="map-container">
-            <script type="text/javascript" charset="utf-8"
-              src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac24b9137d17b99530b38d8c411a0228f6efc6bbc99fbd93066fed2a8002b6d2d&width=100%25&height=400&lang=ru_RU&scroll=true" async>
-            </script>
-          </div>
-        </div>
       </fieldset>
 
       <fieldset>
@@ -128,7 +120,7 @@
         <label class="dish-option">
           <div class="dish-header">
             <input type="radio" name="main_dish" value="chicken_mushroom" required>
-            <span class="dish-title">Куриная грудка с шампиньонами 🍗</span>
+            <span class="dish-title">Куриная грудка с шампиньонами&nbsp;🍗</span>
           </div>
           <span class="dish-description">Куриная грудка, шампиньоны, сыр, специи, лук — в нежном сливочном соусе</span>
         </label>
@@ -136,7 +128,7 @@
         <label class="dish-option">
           <div class="dish-header">
             <input type="radio" name="main_dish" value="buzhenina" required>
-            <span class="dish-title">Буженина с брусничным соусом 🥩</span>
+            <span class="dish-title">Буженина с брусничным соусом&nbsp;🥩</span>
           </div>
           <span class="dish-description">Сочная буженина, подаётся с ароматным брусничным соусом</span>
         </label>
@@ -144,7 +136,7 @@
         <label class="dish-option">
           <div class="dish-header">
             <input type="radio" name="main_dish" value="cod_fish" required>
-            <span class="dish-title">Фиш стейк из трески 🐟</span>
+            <span class="dish-title">Фиш стейк из трески&nbsp;🐟</span>
           </div>
           <span class="dish-description">Филе трески запечённое в сырной корочке, с соусом Тартар и вяленым томатом</span>
         </label>
@@ -152,25 +144,22 @@
 
       <fieldset>
         <legend>🥗 Гарнир</legend>
-
         <label class="dish-option">
           <div class="dish-header">
             <input type="radio" name="side_dish" value="potato" required>
-            <span class="dish-title">Картофель 🥔</span>
+            <span class="dish-title">Картофель&nbsp;🥔</span>
           </div>
         </label>
-
         <label class="dish-option">
           <div class="dish-header">
             <input type="radio" name="side_dish" value="grilled_veggies" required>
-            <span class="dish-title">Овощи гриль 🥦</span>
+            <span class="dish-title">Овощи гриль&nbsp;🥦</span>
           </div>
         </label>
-
         <label class="dish-option">
           <div class="dish-header">
             <input type="radio" name="side_dish" value="mexican_rice" required>
-            <span class="dish-title">Рис по-мексикански 🌶️</span>
+            <span class="dish-title">Рис по-мексикански&nbsp;🌶️</span>
           </div>
         </label>
       </fieldset>
@@ -191,49 +180,43 @@
         <label class="dish-option">
           <div class="dish-header">
             <input type="checkbox" name="drinks" value="виски">
-            <span class="dish-title">Виски 🥃</span>
+            <span class="dish-title">Виски&nbsp;🥃</span>
           </div>
         </label>
-
         <label class="dish-option">
           <div class="dish-header">
             <input type="checkbox" name="drinks" value="джин">
-            <span class="dish-title">Джин 🍸</span>
+            <span class="dish-title">Джин&nbsp;🍸</span>
           </div>
         </label>
-
         <label class="dish-option">
           <div class="dish-header">
             <input type="checkbox" name="drinks" value="ягермейстер">
-            <span class="dish-title">Ягермейстер 🦌</span>
+            <span class="dish-title">Ягермейстер&nbsp;🦌</span>
           </div>
         </label>
-
         <label class="dish-option">
           <div class="dish-header">
             <input type="checkbox" name="drinks" value="водка">
-            <span class="dish-title">Водка ❄️</span>
+            <span class="dish-title">Водка&nbsp;❄️</span>
           </div>
         </label>
-
         <label class="dish-option">
           <div class="dish-header">
             <input type="checkbox" name="drinks" value="коньяк">
-            <span class="dish-title">Коньяк 🥃</span>
+            <span class="dish-title">Коньяк&nbsp;🥃</span>
           </div>
         </label>
-
         <label class="dish-option">
           <div class="dish-header">
             <input type="checkbox" name="drinks" value="шампанское">
-            <span class="dish-title">Шампанское 🍾</span>
+            <span class="dish-title">Шампанское&nbsp;🍾</span>
           </div>
         </label>
-
         <label class="dish-option">
           <div class="dish-header">
             <input type="checkbox" name="drinks" value="вино" id="wine-checkbox">
-            <span class="dish-title">Вино 🍷</span>
+            <span class="dish-title">Вино&nbsp;🍷</span>
           </div>
         </label>
 
@@ -266,20 +249,20 @@
 
   <p class="logout-link"><a href="/logout">Выйти из аккаунта</a></p>
 
-  <!-- Scripts -->
+  <!-- Скрипты -->
   <script>
     const targetDate = new Date("2025-11-02T14:00:00");
     function updateCountdown(){
-      const now = new Date(); const diff = targetDate - now;
-      const clamp0 = (n)=>Math.max(0,n);
-      const days    = clamp0(Math.floor(diff / 86400000));
-      const hours   = clamp0(Math.floor((diff / 3600000) % 24));
-      const minutes = clamp0(Math.floor((diff / 60000) % 60));
-      const seconds = clamp0(Math.floor((diff / 1000) % 60));
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours;
-      document.getElementById("minutes").textContent = minutes;
-      document.getElementById("seconds").textContent = seconds;
+      const now = new Date(), diff = targetDate - now;
+      if (diff <= 0){ document.getElementById("days").textContent = 0;
+        document.getElementById("hours").textContent = 0;
+        document.getElementById("minutes").textContent = 0;
+        document.getElementById("seconds").textContent = 0; return; }
+      const d = Math.floor(diff/86400000);
+      const h = Math.floor(diff/3600000)%24;
+      const m = Math.floor(diff/60000)%60;
+      const s = Math.floor(diff/1000)%60;
+      days.textContent=d; hours.textContent=h; minutes.textContent=m; seconds.textContent=s;
     }
     setInterval(updateCountdown,1000); updateCountdown();
   </script>
@@ -294,7 +277,7 @@
 
   <script>
     const messages = {{ get_flashed_messages(with_categories=true) | tojson }};
-    if (messages.length > 0) {
+    if (messages.length){
       const overlay = document.getElementById('toast-overlay');
       document.getElementById('toast-message').textContent = messages[0][1];
       overlay.classList.remove('hidden');
@@ -303,11 +286,11 @@
   </script>
 
   <script>
-    if (new URLSearchParams(window.location.search).get("confetti") === "1") {
-      setTimeout(() => {
-        confetti({ particleCount: 300, spread: 250, origin:{ y:0.4 } });
-        history.replaceState(null, "", window.location.pathname);
-      }, 500);
+    if (new URLSearchParams(location.search).get("confetti")==="1"){
+      setTimeout(()=>{
+        confetti({ particleCount:300, spread:250, origin:{y:.4} });
+        history.replaceState(null,"",location.pathname);
+      },500);
     }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>

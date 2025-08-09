@@ -408,29 +408,24 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
 ========================= */
 /* очень узкие экраны: фото без отриц. отступов */
 @media (min-width: 900px){
+  .countdown{ padding: 28px 32px; }
   .timer-wrapper{
-    --gap: 28px;
-    justify-content: space-evenly;
+    --gap: 28px;              /* расстояние между кругами */
+    justify-content: space-between;
     padding: 0 8px;
   }
+  /* ВАЖНО: не задаём fixed width — только потолок */
   .count-circle{
-    flex: 0 0 110px !important;
-    width: 110px !important;
-    max-width: 110px !important;  /* перебиваем 92px */
-    min-width: 110px !important;
-    aspect-ratio: 1 / 1;
+    max-width: 110px;         /* могло быть 92px — поднимем потолок */
   }
   .count-num{ font-size: 36px; }
   .count-label{ font-size: 18px; }
 }
 
 @media (min-width: 1200px){
-  .timer-wrapper{ --gap: 40px; }
+  .timer-wrapper{ --gap: 34px; } /* было 40 — чтобы точно влезало */
   .count-circle{
-    flex: 0 0 130px !important;
-    width: 130px !important;
-    max-width: 130px !important;  /* обязательно! */
-    min-width: 130px !important;
+    max-width: 130px;         /* растут, но не выходят за пределы карточки */
   }
   .count-num{ font-size: 40px; }
   .count-label{ font-size: 20px; }

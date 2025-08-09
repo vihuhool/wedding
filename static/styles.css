@@ -409,32 +409,29 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
 /* очень узкие экраны: фото без отриц. отступов */
 @media (min-width: 900px){
   .timer-wrapper{
-    --gap: 40px; /* чуть больше расстояние между кругами */
+    --gap: 28px;
     justify-content: space-evenly;
-    padding: 0 12px;
+    padding: 0 8px;
   }
   .count-circle{
-    flex: 0 0 140px; /* ширина круга */
-    width: 140px;
-  }
-  .count-num{
-    font-size: 42px; /* цифры крупнее */
-  }
-  .count-label{
-    font-size: 20px; /* подписи чуть крупнее */
-  }
-}
-
-@media (min-width: 1024px) {
-  .count-circle {
-    flex: 0 0 140px !important;
-    width: 140px !important;
+    flex: 0 0 110px !important;
+    width: 110px !important;
+    max-width: 110px !important;  /* перебиваем 92px */
+    min-width: 110px !important;
     aspect-ratio: 1 / 1;
   }
-  .count-num {
-    font-size: 42px;
+  .count-num{ font-size: 36px; }
+  .count-label{ font-size: 18px; }
+}
+
+@media (min-width: 1200px){
+  .timer-wrapper{ --gap: 40px; }
+  .count-circle{
+    flex: 0 0 130px !important;
+    width: 130px !important;
+    max-width: 130px !important;  /* обязательно! */
+    min-width: 130px !important;
   }
-  .count-label {
-    font-size: 20px;
-  }
+  .count-num{ font-size: 40px; }
+  .count-label{ font-size: 20px; }
 }

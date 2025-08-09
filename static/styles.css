@@ -1,275 +1,270 @@
-/* ====== базовые вещи ====== */
+/* === фото-обложка (чуть шире контейнера) === */
+.couple-photo{
+  width: calc(100% + 40px);
+  margin: 30px -20px;
+  overflow:hidden;
+}
+.couple-photo img{
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* === базовая типографика === */
 :root{
   --font-body: "Montserrat", Arial, sans-serif;
   --font-title: "Caveat", cursive;
 }
-
-*{ box-sizing: border-box; }
-
-html,body{ height:100%; }
+html { -webkit-text-size-adjust: 100%; }
 body{
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
-  color: #222;
+  color:#222;
   background: url("/static/background.png") center/cover fixed no-repeat;
   position: relative;
 }
 body::before{
   content:"";
-  position: fixed; inset:0;
-  background: rgba(0,0,0,.10);
+  position:fixed; inset:0;
+  background: rgba(0,0,0,0.10);
   z-index:-1; pointer-events:none;
 }
 
-/* ====== типографика ====== */
+/* заголовки */
 h1,h2,h3,legend{
   font-family: var(--font-title);
-  font-weight: 700;
-  letter-spacing: .3px;
-  line-height: 1.15;          /* не даём наезжать друг на друга */
-  margin: 0;
-  overflow-wrap:anywhere;      /* страховка от очень длинных слов */
-  text-wrap: balance;
+  font-weight:700;
+  letter-spacing:.4px;
+  line-height:1.15;
+  text-wrap: balance;               /* мягкие переносы без вываливания */
 }
-/* адаптивные размеры: безопасные пределы */
-h1{ font-size:clamp(28px, 6vw, 44px); }
-h2{ font-size:clamp(22px, 5vw, 34px); margin-top:.25rem; }
-h3,legend{ font-size:clamp(22px, 5vw, 36px); }
+h1{ font-size:clamp(28px,6vw,46px); }
+h2{ font-size:clamp(22px,5vw,34px); }
+h3,legend{ font-size:clamp(22px,4.6vw,32px); }
 
+/* основной контейнер */
 .main-container{
   background:#fff6f7;
-  padding: clamp(20px, 4vw, 40px);
+  padding: clamp(20px,4vw,40px) 20px;
   max-width: 640px;
-  margin: 36px auto 60px;
+  margin: 36px auto;
   border-radius:15px;
   box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
-
-/* карточка фото: на больших – «шире», на узких – обычная */
-.couple-photo{
-  width: calc(100% + 40px);
-  margin: 24px -20px;
-  overflow:hidden;
+.main-container > h1{
+  text-align:center;
+  margin:0 0 6px 0;
 }
-@media (max-width:420px){
-  .couple-photo{ width:100%; margin:16px 0; }
+.main-container > h2{
+  text-align:center;
+  margin:0 0 8px 0;                /* убрал отрицательный margin */
 }
-.couple-photo img{ width:100%; height:auto; display:block; object-fit:cover; }
+.main-container p{
+  margin-bottom: 18px;
+  color:#444;
+}
 
-/* календарь */
-.wedding-date{ text-align:center; margin: 0 0 12px; }
-.wedding-date img{ width:100%; max-width:480px; height:auto; }
-
-/* выход из аккаунта */
+/* ссылка выхода */
 .logout-link{ margin-top:12px; font-size:14px; text-align:center; }
-.logout-link a{ color:#ff6b6b; text-decoration:none; opacity:.8; transition:.2s; }
+.logout-link a{ color:#ff6b6b; text-decoration:none; opacity:.85; transition:opacity .2s; }
 .logout-link a:hover{ opacity:1; text-decoration:underline; }
 
-/* ====== блок места проведения ====== */
-.event-info{
+/* === универсальная «карточка» (как у первой карты) === */
+.card{
   background:#c3d0a7d3;
   border-radius:12px;
   box-shadow:0 2px 6px rgba(0,0,0,.06);
-  padding: 18px 18px 22px;
-  margin: 18px 0 28px;
+  padding:24px;
+  margin:20px 0 30px;
 }
-.event-info h3{
-  font-family:"Great Vibes", cursive;
-  font-weight:1000;
-  margin:10px 0 14px;
+.card h3{
   text-align:center;
-}
-.event-info p{
-  font-family:"Playpen Sans", sans-serif;
-  letter-spacing:.3px;
-  font-size: clamp(16px, 3.8vw, 18px);
-  line-height:1.55;
-  color:#222;
+  margin:8px 0 16px;
 }
 
-/* карта — всегда на всю ширину карточки,
-   даже если у виджета жёсткие inline-width */
-.map-container{ margin:12px 0 4px; border-radius:10px; overflow:hidden; }
+/* первая секция места проведения использует .card через .event-info */
+.event-info{ composes: card; }      /* (логическая пометка; для CSS — просто тот же блок) */
+.event-info{ background:#c3d0a7d3; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,.06); padding:24px; margin:20px 0 30px; }
+.event-info h3{ text-align:center; margin:8px 0 16px; }
+
+/* «карточка карты» для встраиваемых карт — чтобы вторая выглядела как первая */
+.map-embed{
+  background:#c3d0a7d3;
+  border-radius:12px;
+  box-shadow:0 2px 6px rgba(0,0,0,.06);
+  padding:16px;
+  margin:14px 0 6px;
+}
+.map-container{ margin:10px 0; border-radius:10px; overflow:hidden; }
 .map-container iframe,
 .map-container > div,
-.map-container script + * { width:100% !important; height:auto; }
-
-/* ====== всплывающие сообщения ====== */
-.flash-messages{ max-width:400px; margin:10px auto; text-align:center; }
-.flash{ padding:10px; border-radius:8px; margin-bottom:10px; }
-.flash.success{ background:#d4edda; color:#155724; }
-.flash.danger{ background:#f8d7da; color:#721c24; }
-
-/* ====== таймер ====== */
-.countdown{
-  margin: 22px 0 34px;
-  padding: 18px;
-  border-radius:20px;
-  background:#c3d0a7d3;
-  text-align:center;
-}
-.countdown h3{
-  font-family:"Great Vibes", cursive;
-  margin: 6px 0 14px;
-  color:#222;
+.map-container script + *{
+  width:100% !important;
+  height:auto;
 }
 
-/* в одну строку на большинстве телефонов;
-   при сверхузкой ширине (<330px) допускаем перенос на 2 строки */
+/* блок даты/картинка-календарь */
+.wedding-date{ text-align:center; margin:8px 0 10px; }
+.wedding-date img{ width:100%; max-width:480px; height:auto; }
+
+/* === таймер === */
+.countdown{ background:#c3d0a7d3; border-radius:20px; padding:20px; text-align:center; margin:22px 0 30px; }
+.countdown h3{ margin:4px 0 18px; }
+
 .timer-wrapper{
   display:flex;
   justify-content:space-between;
-  align-items:stretch;
-  gap: 10px;
-  flex-wrap: nowrap;
-}
-@media (max-width:330px){
-  .timer-wrapper{ flex-wrap:wrap; }
+  align-items:center;
+  gap:10px;
+  flex-wrap:nowrap;                /* всегда в одну строку */
 }
 
+/* круги фиксированного размера, чтобы не «сплющивались» */
 .count-circle{
-  flex: 0 1 auto;
-  width: clamp(70px, 22vw, 120px);   /* фиксируем «круглую» ширину */
-  aspect-ratio: 1 / 1;              /* держим круг */
+  flex: 0 0 72px;                  /* ширина круга */
+  width:72px;
+  aspect-ratio:1/1;                /* круг */
   border-radius:50%;
   border:2px solid #cdd8c9;
   background:#fff6f7;
-  display:flex; flex-direction:column; justify-content:center; align-items:center;
-  padding:8px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:6px;
+  box-sizing:border-box;
 }
-.count-num{ font-family:"Playpen Sans", sans-serif; font-size:clamp(22px, 5.2vw, 28px); font-weight:700; line-height:1; color:#465046; }
-.count-label{ font-family:"Playpen Sans", sans-serif; font-size:clamp(12px, 3.8vw, 16px); color:#667066; letter-spacing:.2px; margin-top:2px; }
+@media (min-width:420px){
+  .count-circle{ flex-basis:78px; width:78px; }
+}
+@media (min-width:520px){
+  .count-circle{ flex-basis:86px; width:86px; }
+}
 
-/* ====== форма RSVP ====== */
+.count-num{ font-family:"Playpen Sans",sans-serif; font-size:clamp(20px,5.2vw,28px); font-weight:700; line-height:1; color:#465046; }
+.count-label{ font-family:"Playpen Sans",sans-serif; font-size:clamp(12px,3.8vw,16px); color:#667066; letter-spacing:.2px; margin-top:2px; }
+
+/* === RSVP форма === */
 .rsvp-form{
   background:#c3d0a7d3;
-  padding: clamp(16px, 4vw, 25px);
+  padding: clamp(16px,4vw,25px);
   border-radius:14px;
 }
-.rsvp-form h3{
-  font-family:"Great Vibes", cursive;
-  text-align:center;
-  margin: 6px 0 18px;
-  padding-top:0;
-}
+.rsvp-form h3{ text-align:center; margin:6px 0 20px; }
+
 .rsvp-form fieldset{
-  border:1px solid #daddd0;
+  border:1px solid #dfe6d5;
   border-radius:12px;
-  padding: 16px 12px 6px;
-  margin-bottom: 10px;
-  background: transparent;
+  padding:16px 12px 10px;
+  margin:12px 0;
+  background:rgba(255,255,255,.12);
 }
 .rsvp-form legend{
-  font-weight:600;
-  color:#222;
-  padding: 4px 10px;
-  background: transparent;
-  border-radius: 10px;
+  display:inline-block;
+  padding:4px 12px;
+  font-weight:700;
+  margin:0 0 6px;
 }
-.rsvp-form label{ display:block; margin-bottom:12px; font-size:18px; }
 
-/* инпуты — без зума на iOS */
+/* инпуты */
 .rsvp-form input[type="text"],
 .rsvp-form textarea,
 .rsvp-form select{
-  width:100%; padding:10px; margin-top:6px;
-  border:1px solid #ccc; border-radius:8px;
-  font-size:16px;
+  width:100%;
+  padding:10px;
+  margin-top:6px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:16px;             /* чтобы iOS не зумил */
+  box-sizing:border-box;
 }
 .rsvp-form textarea{ resize:vertical; }
 
+/* пункт-выбор (карточка) */
+.dish-option{
+  display:block;
+  background:#fff6f7;
+  border-radius:12px;
+  border:none;
+  box-shadow:0 2px 6px rgba(0,0,0,.06);
+  padding:16px;
+  margin:12px 0;
+}
+
+/* заголовок блюда + эмодзи на одной строке, без отрыва */
+.dish-header{
+  display:flex; align-items:center; gap:8px; flex-wrap:nowrap;
+}
+.dish-header input[type="radio"]{ margin:0; }
+
+.dish-title{
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:"Caveat",sans-serif;
+  letter-spacing:.4px;
+  font-weight:700;
+  font-size:clamp(18px,4.8vw,22px);     /* меньше, чем было */
+  white-space:nowrap;                    /* не рвём слово и эмодзи */
+}
+
+/* описание блюда — всегда мельче заголовка */
+.dish-description{
+  font-family:"Playpen Sans",sans-serif;
+  font-weight:400;
+  letter-spacing:.3px;
+  margin-top:6px;
+  font-size:clamp(14px,4.2vw,16px);
+  color:#555;
+}
+
+/* кнопка отправки */
 .rsvp-form button{
-  display:block; margin:12px auto 0;
+  display:block; margin:10px auto 0;
   font-family:"Yanone Kaffeesatz",sans-serif;
   font-size:1.2rem; font-weight:600;
   background:#c3d0a7d3; color:#222;
-  padding:12px 30px; border:none; border-radius:10px; cursor:pointer;
-  transition: background .25s ease, transform .15s;
+  padding:12px 28px; border:none; border-radius:10px;
+  cursor:pointer; transition:background .25s ease, transform .15s;
   box-shadow:0 2px 4px rgba(0,0,0,.12);
 }
 .rsvp-form button:hover{ background:#b6c79ad3; }
 .rsvp-form button:active{ transform:translateY(1px); box-shadow:0 1px 2px rgba(0,0,0,.18); }
 
-/* карточки блюд */
-.dish-option{
-  display:block;
-  background:#fff6f7;
-  border:none;
-  box-shadow:0 2px 6px rgba(0,0,0,.06);
-  border-radius:10px;
-  padding:16px;
-  margin-bottom:16px;
-}
-.dish-header{
-  display:flex; align-items:center; gap:10px;
-}
-.dish-header input[type="radio"], .dish-header input[type="checkbox"]{ margin:0; }
-
-/* Заголовок блюда: текст + эмодзи всегда вместе */
-.dish-title{
-  font-family:"Caveat", sans-serif;
-  font-weight:700;
-  letter-spacing:.4px;
-  font-size: clamp(20px, 5.2vw, 26px);
-  display:inline-flex; align-items:center; flex-wrap:nowrap; gap:6px;
-}
-.dish-title .glue{ white-space:nowrap; }   /* «приклеиваем» эмодзи */
-
-.dish-description{
-  font-family:"Playpen Sans", sans-serif;
-  font-weight:300; letter-spacing:.4px;
-  margin-top:4px; font-size: clamp(15px, 4.4vw, 18px);
-  color:#555;
-}
-
-/* палитра */
-.dress-code{
-  background:#c3d0a7d3; border-radius:12px;
-  box-shadow:0 2px 6px rgba(0,0,0,.06);
-  padding: 24px 18px; margin: 28px 0; text-align:center;
-}
-.dress-code h3{ font-family:"Great Vibes", cursive; margin:10px 0 10px; color:#222; }
-.dress-code p{
-  font-family:"Playpen Sans", sans-serif; font-weight:400; letter-spacing:.3px;
-  font-size: clamp(15px, 4.2vw, 18px); margin-bottom:16px; color:#222;
-}
-.color-palette{ display:flex; justify-content:center; gap:10px; list-style:none; padding:0; margin:0; }
-.color-palette li{ position:relative; width:clamp(28px, 9vw, 54px); aspect-ratio:1/1; border-radius:50%; background:var(--swatch); box-shadow:0 0 0 2px rgba(0,0,0,.05); }
-.color-palette li::before{ content:""; position:absolute; inset:-6px; border-radius:50%; background:#fff; z-index:-1; }
-
-/* wine options */
+/* блок доп. опций вина */
 #wine-options{
   background:#fff6f7;
   border-radius:10px;
   box-shadow:0 2px 6px rgba(0,0,0,.06);
   padding:16px; margin-bottom:16px;
-  display:flex; flex-direction:column; gap:14px;
+  display:flex; flex-direction:column; gap:18px;
 }
 #wine-options label{
-  font-family:"Playpen Sans", sans-serif; font-size:1.05rem; font-weight:500; display:flex; flex-direction:column; gap:8px;
+  font-family:"Playpen Sans",sans-serif;
+  font-size:1.05rem; font-weight:500;
+  display:flex; flex-direction:column; gap:8px;
 }
 #wine-options select{
-  border:1px solid #d4d4d4; border-radius:10px; padding:12px 14px;
-  font-size:1rem; font-family:"Playpen Sans", sans-serif; appearance:none; outline:none; transition:border-color .15s ease;
+  border:1px solid #d4d4d4; box-shadow:none;
+  border-radius:10px; padding:12px 14px;
+  font-size:1rem; font-family:"Playpen Sans",sans-serif;
+  appearance:none; outline:none; transition:border-color .15s ease;
 }
-#wine-options select:hover, #wine-options select:focus{ border-color:#ff6b6b; }
+#wine-options select:hover,
+#wine-options select:focus{ border-color:#ff6b6b; }
 
-/* auth (как было) */
-.auth-container{ background:#fff; padding:30px; max-width:400px; margin:60px auto; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,.1); }
-.auth-container h2{ margin-bottom:20px; text-align:center; color:#333; }
-.auth-form{ display:flex; flex-direction:column; }
-.auth-form input{ padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:8px; font-size:16px; }
-.auth-form button{ padding:10px; background:#c3d0a7d3; border:none; border-radius:8px; color:#222; font-size:16px; cursor:pointer; }
-.auth-form button:hover{ background:#8e9b72d3; }
-.auth-container p{ margin-top:15px; text-align:center; }
-.auth-container h1{ margin-bottom:20px; text-align:center; color:#333; font-size:28px; font-weight:700; }
+/* палитра цветов */
+.color-palette{ display:flex; justify-content:center; gap:10px; list-style:none; padding:0; margin:0; }
+.color-palette li{ position:relative; width:clamp(28px,9vw,44px); aspect-ratio:1/1; border-radius:50%; background:var(--swatch); box-shadow:0 0 0 2px rgba(0,0,0,.05); }
+.color-palette li::before{ content:""; position:absolute; inset:-6px; border-radius:50%; background:#fff; z-index:-1; }
 
-/* тост */
-.toast-overlay{
-  position:fixed; inset:0; backdrop-filter:blur(6px);
-  background:rgba(0,0,0,.2); display:flex; align-items:center; justify-content:center;
-  z-index:10000; transition:opacity .3s ease;
-}
+/* тосты */
+.toast-overlay{ position:fixed; inset:0; backdrop-filter:blur(6px); background:rgba(0,0,0,.2); display:flex; align-items:center; justify-content:center; z-index:10000; transition:opacity .3s; }
 .toast-overlay.hidden{ opacity:0; pointer-events:none; }
 .toast{ background:#d4edda; color:#155724; padding:24px 36px; border-radius:16px; font-size:20px; font-weight:600; box-shadow:0 12px 30px rgba(0,0,0,.2); max-width:90%; text-align:center; }
+
+/* мелкие правки на очень узких экранах */
+@media (max-width:360px){
+  .couple-photo{ width:100%; margin:20px 0; }
+  .card, .event-info, .rsvp-form{ padding:16px; }
+}

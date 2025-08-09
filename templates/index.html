@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Свадебное приглашение</title>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <link rel="icon" type="image/png" href="/static/favicon.png" />
-  <link rel="stylesheet" href="/static/styles.css" />
-
-  <!-- fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Great+Vibes&family=Yanone+Kaffeesatz:wght@400;500;600&family=Playpen+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/static/favicon.png">
+  <link rel="stylesheet" href="/static/styles.css">
 </head>
-
 <body>
-  <!-- toast -->
+  <!-- Toast -->
   <div id="toast-overlay" class="toast-overlay hidden">
-    <div id="toast" class="toast">
-      <span id="toast-message"></span>
-    </div>
+    <div id="toast" class="toast"><span id="toast-message"></span></div>
   </div>
 
   <div class="main-container">
@@ -28,37 +24,28 @@
     <h2>на нашу свадьбу!</h2>
 
     <div class="couple-photo">
-      <img src="/static/photo.png" alt="Мы ждём вас на нашей свадьбе" />
+      <img src="/static/photo.png" alt="Мы ждём вас на нашей свадьбе">
     </div>
 
     <div class="wedding-date">
-      <img src="/static/calendar.png" alt="2 ноября 2025 г., 14:00" />
+      <img src="/static/calendar.png" alt="2 ноября 2025 г., 14:00">
     </div>
 
-    <div class="event-info">
+    <!-- Первая карта в карточке -->
+    <div class="event-info card">
       <h3>Место проведения</h3>
-      <p>
-        Банкетный зал "Лея"<br />
-        Свердловская наб., 62, Санкт-Петербург<br />
-        Время: 14:00
-      </p>
+      <p>Банкетный зал "Лея"<br>Свердловская наб., 62, Санкт-Петербург<br>Время: 14:00</p>
       <div class="map-container">
-        <script
-          type="text/javascript"
-          charset="utf-8"
-          async
-          src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A317e1229c0303a240f835b1636f362c2167f79794723a2f41b3fedb117de73ea&width=100%25&height=400&lang=ru_RU&scroll=true">
+        <script type="text/javascript" charset="utf-8"
+          src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A317e1229c0303a240f835b1636f362c2167f79794723a2f41b3fedb117de73ea&width=100%25&height=400&lang=ru_RU&scroll=true" async>
         </script>
       </div>
     </div>
 
-    <!-- dress code -->
-    <section class="dress-code">
+    <!-- Дресс-код -->
+    <section class="dress-code card">
       <h3>Дресс-код</h3>
-      <p>
-        Наш зал выполнен в бежевых тонах с акцентами светом.<br />
-        Предлагаем использовать пастельные или природные тона, например:
-      </p>
+      <p>Наш зал выполнен в бежевых тонах с акцентами светом<br>Предлагаем использовать пастельные или природные тона, например:</p>
       <ul class="color-palette">
         <li style="--swatch:#000000"></li>
         <li style="--swatch:#7E7E7E"></li>
@@ -71,7 +58,7 @@
       </ul>
     </section>
 
-    <!-- countdown -->
+    <!-- Таймер -->
     <div class="countdown">
       <h3>До торжества осталось</h3>
       <div class="timer-wrapper">
@@ -94,7 +81,7 @@
       </div>
     </div>
 
-    <!-- form -->
+    <!-- RSVP -->
     <form action="/submit_rsvp" method="POST" class="rsvp-form">
       <h3>Анкета участника</h3>
 
@@ -104,7 +91,7 @@
           <div class="dish-header">
             <span class="dish-title">Имя и фамилия</span>
           </div>
-          <input type="text" name="name" class="input-text" placeholder="Ваше имя и фамилия" required />
+          <input type="text" name="name" class="input-text" placeholder="Ваше имя и фамилия" required>
         </label>
       </fieldset>
 
@@ -113,60 +100,51 @@
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="radio" name="zags" value="да" required />
+            <input type="radio" name="zags" value="да" required>
             <span class="dish-title">Хочу присутствовать</span>
           </div>
         </label>
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="radio" name="zags" value="нет" required />
+            <input type="radio" name="zags" value="нет" required>
             <span class="dish-title">Не планирую</span>
           </div>
         </label>
-      </fieldset>
 
-      <div class="map-container">
-        <script
-          type="text/javascript"
-          charset="utf-8"
-          async
-          src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac24b9137d17b99530b38d8c411a0228f6efc6bbc99fbd93066fed2a8002b6d2d&width=100%25&height=400&lang=ru_RU&scroll=true">
-        </script>
-      </div>
+        <!-- Вторая карта — в такой же карточке, как первая -->
+        <div class="map-embed">
+          <div class="map-container">
+            <script type="text/javascript" charset="utf-8"
+              src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac24b9137d17b99530b38d8c411a0228f6efc6bbc99fbd93066fed2a8002b6d2d&width=100%25&height=400&lang=ru_RU&scroll=true" async>
+            </script>
+          </div>
+        </div>
+      </fieldset>
 
       <fieldset>
         <legend>🍽️ Основное блюдо</legend>
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="radio" name="main_dish" value="chicken_mushroom" required />
-            <span class="dish-title">
-              Куриная грудка с шампиньонами
-              <span class="glue">🍗</span>
-            </span>
+            <input type="radio" name="main_dish" value="chicken_mushroom" required>
+            <span class="dish-title">Куриная грудка с шампиньонами 🍗</span>
           </div>
           <span class="dish-description">Куриная грудка, шампиньоны, сыр, специи, лук — в нежном сливочном соусе</span>
         </label>
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="radio" name="main_dish" value="buzhenina" required />
-            <span class="dish-title">
-              Буженина с брусничным соусом
-              <span class="glue">🥩</span>
-            </span>
+            <input type="radio" name="main_dish" value="buzhenina" required>
+            <span class="dish-title">Буженина с брусничным соусом 🥩</span>
           </div>
           <span class="dish-description">Сочная буженина, подаётся с ароматным брусничным соусом</span>
         </label>
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="radio" name="main_dish" value="cod_fish" required />
-            <span class="dish-title">
-              Фиш стейк из трески
-              <span class="glue">🐟</span>
-            </span>
+            <input type="radio" name="main_dish" value="cod_fish" required>
+            <span class="dish-title">Фиш стейк из трески 🐟</span>
           </div>
           <span class="dish-description">Филе трески запечённое в сырной корочке, с соусом Тартар и вяленым томатом</span>
         </label>
@@ -177,22 +155,22 @@
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="radio" name="side_dish" value="potato" required />
-            <span class="dish-title">Картофель <span class="glue">🥔</span></span>
+            <input type="radio" name="side_dish" value="potato" required>
+            <span class="dish-title">Картофель 🥔</span>
           </div>
         </label>
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="radio" name="side_dish" value="grilled_veggies" required />
-            <span class="dish-title">Овощи гриль <span class="glue">🥦</span></span>
+            <input type="radio" name="side_dish" value="grilled_veggies" required>
+            <span class="dish-title">Овощи гриль 🥦</span>
           </div>
         </label>
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="radio" name="side_dish" value="mexican_rice" required />
-            <span class="dish-title">Рис по-мексикански <span class="glue">🌶️</span></span>
+            <input type="radio" name="side_dish" value="mexican_rice" required>
+            <span class="dish-title">Рис по-мексикански 🌶️</span>
           </div>
         </label>
       </fieldset>
@@ -203,7 +181,7 @@
           <div class="dish-header">
             <span class="dish-title">Аллергии и пожелания</span>
           </div>
-          <input type="text" name="restrictions" class="input-text" placeholder="Укажите, если есть аллергии или особые пожелания..." />
+          <input type="text" name="restrictions" class="input-text" placeholder="Укажите, если есть аллергии или особые пожелания..." required>
         </label>
       </fieldset>
 
@@ -212,50 +190,50 @@
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="checkbox" name="drinks" value="виски" />
-            <span class="dish-title">Виски <span class="glue">🥃</span></span>
+            <input type="checkbox" name="drinks" value="виски">
+            <span class="dish-title">Виски 🥃</span>
           </div>
         </label>
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="checkbox" name="drinks" value="джин" />
-            <span class="dish-title">Джин <span class="glue">🍸</span></span>
+            <input type="checkbox" name="drinks" value="джин">
+            <span class="dish-title">Джин 🍸</span>
           </div>
         </label>
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="checkbox" name="drinks" value="ягермейстер" />
-            <span class="dish-title">Ягермейстер <span class="glue">🦌</span></span>
+            <input type="checkbox" name="drinks" value="ягермейстер">
+            <span class="dish-title">Ягермейстер 🦌</span>
           </div>
         </label>
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="checkbox" name="drinks" value="водка" />
-            <span class="dish-title">Водка <span class="glue">❄️</span></span>
+            <input type="checkbox" name="drinks" value="водка">
+            <span class="dish-title">Водка ❄️</span>
           </div>
         </label>
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="checkbox" name="drinks" value="коньяк" />
-            <span class="dish-title">Коньяк <span class="glue">🥃</span></span>
+            <input type="checkbox" name="drinks" value="коньяк">
+            <span class="dish-title">Коньяк 🥃</span>
           </div>
         </label>
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="checkbox" name="drinks" value="шампанское" />
-            <span class="dish-title">Шампанское <span class="glue">🍾</span></span>
+            <input type="checkbox" name="drinks" value="шампанское">
+            <span class="dish-title">Шампанское 🍾</span>
           </div>
         </label>
 
         <label class="dish-option">
           <div class="dish-header">
-            <input type="checkbox" name="drinks" value="вино" id="wine-checkbox" />
-            <span class="dish-title">Вино <span class="glue">🍷</span></span>
+            <input type="checkbox" name="drinks" value="вино" id="wine-checkbox">
+            <span class="dish-title">Вино 🍷</span>
           </div>
         </label>
 
@@ -286,56 +264,52 @@
     </form>
   </div>
 
-  <p class="logout-link">
-    <a href="/logout">Выйти из аккаунта</a>
-  </p>
+  <p class="logout-link"><a href="/logout">Выйти из аккаунта</a></p>
 
-  <!-- scripts -->
+  <!-- Scripts -->
   <script>
     const targetDate = new Date("2025-11-02T14:00:00");
     function updateCountdown(){
-      const now = new Date();
-      const diff = targetDate - now;
-      const days = Math.max(0, Math.floor(diff / (1000*60*60*24)));
-      const hours = Math.max(0, Math.floor((diff / (1000*60*60)) % 24));
-      const minutes = Math.max(0, Math.floor((diff / 1000 / 60) % 60));
-      const seconds = Math.max(0, Math.floor((diff / 1000) % 60));
+      const now = new Date(); const diff = targetDate - now;
+      const clamp0 = (n)=>Math.max(0,n);
+      const days    = clamp0(Math.floor(diff / 86400000));
+      const hours   = clamp0(Math.floor((diff / 3600000) % 24));
+      const minutes = clamp0(Math.floor((diff / 60000) % 60));
+      const seconds = clamp0(Math.floor((diff / 1000) % 60));
       document.getElementById("days").textContent = days;
       document.getElementById("hours").textContent = hours;
       document.getElementById("minutes").textContent = minutes;
       document.getElementById("seconds").textContent = seconds;
     }
-    setInterval(updateCountdown, 1000); updateCountdown();
+    setInterval(updateCountdown,1000); updateCountdown();
   </script>
 
   <script>
     const wineCheckbox = document.getElementById("wine-checkbox");
-    const wineOptions = document.getElementById("wine-options");
-    wineCheckbox.addEventListener("change", function () {
-      wineOptions.style.display = this.checked ? "block" : "none";
+    const wineOptions  = document.getElementById("wine-options");
+    wineCheckbox.addEventListener("change", () => {
+      wineOptions.style.display = wineCheckbox.checked ? "block" : "none";
     });
   </script>
 
   <script>
     const messages = {{ get_flashed_messages(with_categories=true) | tojson }};
-    if (messages.length > 0){
+    if (messages.length > 0) {
       const overlay = document.getElementById('toast-overlay');
-      const toastMessage = document.getElementById('toast-message');
-      toastMessage.textContent = messages[0][1];
+      document.getElementById('toast-message').textContent = messages[0][1];
       overlay.classList.remove('hidden');
       setTimeout(()=>overlay.classList.add('hidden'), 4000);
     }
   </script>
 
-  <!-- конфетти по ?confetti=1 -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
-    if (new URLSearchParams(window.location.search).get("confetti") === "1"){
-      setTimeout(()=>{
-        confetti({ particleCount: 300, spread: 250, origin:{ y:.4 } });
+    if (new URLSearchParams(window.location.search).get("confetti") === "1") {
+      setTimeout(() => {
+        confetti({ particleCount: 300, spread: 250, origin:{ y:0.4 } });
         history.replaceState(null, "", window.location.pathname);
       }, 500);
     }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </body>
 </html>

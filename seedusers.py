@@ -2,21 +2,18 @@
 import os, sqlite3, csv, secrets, string
 
 DB_PATH = "wedding.db"
-SCHEMA = "schema.sql"
-DOMAIN = "wedding.ru"   # домен для логинов
-COUNT  = 40             # сколько учёток создать
+SCHEMA  = "schema.sql"
+DOMAIN  = "wedding.ru"
+COUNT   = 40
 
-# слоги для "читаемых" логинов (без цифр)
-SYLL = [
-    "ma","me","mi","mo","mu","na","ne","ni","no","nu","la","le","li","lo","lu",
-    "ra","re","ri","ro","ru","ta","te","ti","to","tu","ka","ke","ki","ko","ku",
-    "sa","se","si","so","su","va","ve","vi","vo","vu","pa","pe","pi","po","pu",
-    "ba","be","bi","bo","bu","ga","ge","gi","go","gu","fa","fe","fi","fo","fu",
-    "ya","ye","yo","yu","za","ze","zi","zo","zu","xa","xe","xi","xo","xu"
-]
+# базовые наборы для слогов (CV)
+CONS = list("pbmnlkrstzvfhdg")   # мягкие/звонкие, звучат «игриво»
+VOWS = list("aeiou")             # классические гласные
+
+# фаворитные слоги — будем чаще подмешивать, чтобы чаще выходили pazizu/labubu/pipipo-подобные
+FAV = ["pa","pi","po","pu","la","lu","li","bu","ba","zi","zu","zo","mi","mo"]
 
 def ensure_db():
-    """Создать БД по schema.sql, если файла нет."""
     if not os.path.exists(DB_PATH) and os.path.exists(SCHEMA):
         with sqlite3.connect(DB_PATH) as conn, open(SCHEMA, "r", encoding="utf-8") as f:
             conn.executescript(f.read())
@@ -25,26 +22,48 @@ def gen_password(n=8):
     alphabet = string.ascii_letters + string.digits
     return "".join(secrets.choice(alphabet) for _ in range(n))
 
-def gen_local():
-    """Генерирует логин без цифр: 2–3 слога + опциональный -слог."""
-    parts = [secrets.choice(SYLL) for _ in range(secrets.choice([2,3]))]
-    local = "".join(parts)
-    # иногда добавим -слог для разнообразия
-    if secrets.randbelow(3) == 0:
-        local += "-" + secrets.choice(SYLL).rstrip("aeiou")  # чуть компактнее
+def rand_syllable() -> str:
+    """Один слог CV; фавориты имеют больший шанс."""
+    if secrets.randbelow(3) == 0:          # ~33% — взять фаворит
+        return secrets.choice(FAV)
+    return secrets.choice(CONS) + secrets.choice(VOWS)
+
+def gen_funny_local() -> str:
+    """
+    Генерируем «смешной» логин без цифр/дефисов.
+    Паттерны:
+      - [a, b, c]      → pazizu
+      - [a, b, b]      → labubu
+      - [a, a, b]      → pipipo
+      - [a, b, a, b]   → papipa / lazila и т.п.
+    """
+    a = rand_syllable()
+    b = rand_syllable()
+    c = rand_syllable()
+
+    pattern = secrets.choice([
+        [a, b, c],
+        [a, b, b],
+        [a, a, b],
+        [a, b, a, b],
+    ])
+    local = "".join(pattern)
+
+    # иногда удлиним ещё одним слогом (редко), но всё равно без дефисов
+    if secrets.randbelow(6) == 0:  # ~16%
+        local += rand_syllable()
     return local
 
 def unique_local(used: set[str]) -> str:
-    """Возвращает уникальный локал (только буквы/дефис)."""
-    for _ in range(50):
-        cand = gen_local()
+    for _ in range(60):
+        cand = gen_funny_local()
         if cand not in used:
             used.add(cand)
             return cand
-    # редкий случай большого числа коллизий — добавим буквенный суффикс
-    base = gen_local()
+    # если совсем невезёт — добавим ещё слог к базе
+    base = gen_funny_local()
     while True:
-        cand = base + "-" + "".join(secrets.choice(string.ascii_lowercase) for _ in range(2))
+        cand = base + rand_syllable()
         if cand not in used:
             used.add(cand)
             return cand
@@ -64,7 +83,7 @@ def seed_users(count=COUNT, domain=DOMAIN):
         """)
         conn.commit()
 
-        # соберём уже занятые локалы, чтобы не конфликтовать
+        # уже занятые локалы
         used = set()
         cur.execute("SELECT email FROM users")
         for (email,) in cur.fetchall():
@@ -76,7 +95,6 @@ def seed_users(count=COUNT, domain=DOMAIN):
             local = unique_local(used)
             email = f"{local}@{domain}"
             pwd   = gen_password(8)
-
             try:
                 cur.execute(
                     "INSERT INTO users(email, password_hash) VALUES (?, ?)",
@@ -84,12 +102,10 @@ def seed_users(count=COUNT, domain=DOMAIN):
                 )
                 created.append((email, pwd))
             except sqlite3.IntegrityError:
-                # крайне маловероятно, но попробуем ещё
                 continue
 
         conn.commit()
 
-    # выгрузим CSV
     out_csv = "users_credentials.csv"
     with open(out_csv, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)

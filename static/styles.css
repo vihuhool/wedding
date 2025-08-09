@@ -237,20 +237,19 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
   align-items:center;
   gap:6px;
   flex-wrap:wrap;
-  font-family: var(--font-title);      /* рукописный */
+  font-family: var(--font-title);
   font-weight:700;
-  font-size: clamp(18px, 4.5vw, 22px);
-  line-height: 1.15;                   /* меньше межстрочный */
+  font-size: clamp(19px, 4.8vw, 24px); /* Чуть крупнее */
+  line-height: 1.12;                  /* Плотнее */
 }
 
-/* Описание — меньше шрифт, плотнее, и больше отступ сверху */
 .dish-description{
   font-family: var(--font-ui);
   font-weight:400;
-  letter-spacing:.3px;
-  margin-top: 10px;                    /* ↑ больше зазор между названием и описанием */
-  font-size: clamp(15px, 4vw, 17px);
-  line-height: 1.35;                   /* плотнее строки */
+  letter-spacing:.2px;
+  margin-top: 10px;                    /* отступ между названием и описанием оставляем */
+  font-size: clamp(14px, 3.6vw, 16px); /* Чуть меньше текста */
+  line-height: 1.25;                   /* Плотнее строки */
   color:#555;
 }
 

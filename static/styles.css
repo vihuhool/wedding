@@ -14,13 +14,12 @@
 /* ===== Шрифты и базовые переменные ===== */
 :root{
   --font-body: "Montserrat", Arial, sans-serif;
-  --font-title: "Caveat", cursive;        /* h1/h2 */
-  --font-hand: "Great Vibes", cursive;    /* h3, легенды */
+  --font-title: "Caveat", cursive;        /* для всех заголовков и legends (есть кириллица) */
   --font-ui: "Playpen Sans", sans-serif;  /* описания/формы */
 }
 
 /* ===== База ===== */
-html { -webkit-text-size-adjust: 100%; }
+html{ -webkit-text-size-adjust: 100%; }
 body{
   font-family: var(--font-body);
   font-size: 16px;
@@ -37,22 +36,16 @@ body::before{
 }
 
 /* ===== Заголовки ===== */
-h1, h2{
+h1, h2, h3, legend{
   font-family: var(--font-title);
-  font-weight:700;
-  letter-spacing:.4px;
+  font-weight: 700;
+  letter-spacing:.25px;
   text-wrap: balance;
+  line-height: 1.15;                 /* поменьше межстрочный, чтобы не «прыгало» */
 }
-h3, legend{
-  font-family: var(--font-hand);
-  font-weight:700;
-  letter-spacing:.2px;
-  text-wrap: balance;
-}
-
 h1{ font-size: clamp(28px, 6vw, 60px); }
 h2{ font-size: clamp(22px, 4.8vw, 40px); }
-h3, legend{ font-size: clamp(24px, 5.4vw, 42px); }
+h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
 
 /* ===== Каркас карточки ===== */
 .main-container{
@@ -90,6 +83,7 @@ h3, legend{ font-size: clamp(24px, 5.4vw, 42px); }
   font-family: var(--font-ui);
   letter-spacing:.3px;
   font-size:1.05rem;
+  line-height: 1.5;
   color:#222;
 }
 .map-container{
@@ -149,19 +143,13 @@ h3, legend{ font-size: clamp(24px, 5.4vw, 42px); }
   background:#c3d0a7d3;
   text-align:center;
 }
-.countdown h3{
-  margin: 4px 0 20px;
-  color:#222;
-}
+.countdown h3{ margin: 4px 0 20px; color:#222; }
 .timer-wrapper{
-  display:flex;
-  flex-wrap: wrap;            /* позволит уйти в 2 строки при узких экранах */
-  justify-content: center;
-  gap:14px;
+  display:flex; flex-wrap: wrap; justify-content: center; gap:14px;
 }
 .count-circle{
-  flex: 1 1 110px;            /* растёт, но имеет базу */
-  min-width: 88px;            /* можно уменьшать при очень узких экранах */
+  flex: 1 1 110px;
+  min-width: 88px;
   max-width: 140px;
   aspect-ratio: 1/1;
   border-radius:50%;
@@ -173,12 +161,12 @@ h3, legend{ font-size: clamp(24px, 5.4vw, 42px); }
 .count-num{
   font-family: var(--font-ui);
   font-size: clamp(22px, 5.2vw, 34px);
-  font-weight:700; line-height:1; color:#465046;
+  font-weight:700; line-height:1.05; color:#465046;
 }
 .count-label{
   font-family: var(--font-ui);
   font-size: clamp(13px, 3.8vw, 18px);
-  color:#667066; letter-spacing:.3px; margin-top:2px;
+  color:#667066; letter-spacing:.3px; margin-top:2px; line-height:1.05;
 }
 
 /* ===== RSVP ===== */
@@ -188,10 +176,12 @@ h3, legend{ font-size: clamp(24px, 5.4vw, 42px); }
   border-radius:14px;
 }
 .rsvp-form h3{ text-align:center; margin: 6px 0 22px; }
+
+/* legends — «те самые» шрифты и плотнее */
 .rsvp-form fieldset{
   border:1px solid #e2e6d8;
   border-radius:12px;
-  padding:18px 14px 6px;
+  padding:18px 14px 8px;
   margin-bottom:12px;
   background-color: transparent;
 }
@@ -199,7 +189,12 @@ h3, legend{ font-size: clamp(24px, 5.4vw, 42px); }
   display:block;
   width:100%;
   text-align:center;
-  margin-bottom:6px;
+  margin: 0 0 10px;
+  padding: 0;
+  font-family: var(--font-title);
+  font-weight:700;
+  line-height:1.1;             /* плотнее, чтобы не «разносило» */
+  letter-spacing:.2px;
   color:#222;
 }
 
@@ -227,24 +222,35 @@ h3, legend{ font-size: clamp(24px, 5.4vw, 42px); }
   padding:14px;
   margin-bottom:14px;
 }
+
+/* Заголовок блюда + эмодзи — компактная межстрочка */
 .dish-header{
-  display:flex; align-items:center; gap:10px;
-  font-family: var(--font-ui); font-weight:600; letter-spacing:.3px;
+  display:flex; align-items:flex-start; gap:10px;
+  font-family: var(--font-ui);
+  font-weight:600;
+  letter-spacing:.3px;
 }
-.dish-header input[type="radio"]{ margin:0; }
+.dish-header input[type="radio"]{ margin:4px 0 0 0; }
+
 .dish-title{
-  display:inline-flex; align-items:center; gap:6px; flex-wrap:wrap;
-  font-family: var(--font-title);        /* акцентный рукописный */
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  flex-wrap:wrap;
+  font-family: var(--font-title);      /* рукописный */
   font-weight:700;
-  font-size: clamp(18px, 4.5vw, 22px);   /* заголовок крупнее описания */
-  line-height:1.25;
+  font-size: clamp(18px, 4.5vw, 22px);
+  line-height: 1.15;                   /* меньше межстрочный */
 }
+
+/* Описание — меньше шрифт, плотнее, и больше отступ сверху */
 .dish-description{
   font-family: var(--font-ui);
   font-weight:400;
   letter-spacing:.3px;
-  margin-top:6px;
-  font-size: clamp(15px, 4vw, 17px);     /* меньше заголовка */
+  margin-top: 10px;                    /* ↑ больше зазор между названием и описанием */
+  font-size: clamp(15px, 4vw, 17px);
+  line-height: 1.35;                   /* плотнее строки */
   color:#555;
 }
 
@@ -266,7 +272,7 @@ h3, legend{ font-size: clamp(24px, 5.4vw, 42px); }
 .logout-link a{ color:#ff6b6b; text-decoration:none; opacity:.85; transition:opacity .2s; }
 .logout-link a:hover{ opacity:1; text-decoration:underline; }
 
-/* Пара нюансов для очень узких экранов */
+/* Очень узкие экраны: фото без отриц. отступов */
 @media (max-width:420px){
   .couple-photo{ width:100%; margin:20px 0; }
 }

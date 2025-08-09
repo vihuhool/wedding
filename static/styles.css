@@ -114,6 +114,7 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
   font-weight:400;
   letter-spacing:.3px;
   font-size:1.05rem;
+  line-height: 1.15;  
   color:#222;
 }
 .color-palette{
@@ -144,8 +145,23 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
   text-align:center;
 }
 .countdown h3{ margin: 4px 0 20px; color:#222; }
-.timer-wrapper{
-  display:flex; flex-wrap: wrap; justify-content: center; gap:14px;
+.timer-wrapper {
+  flex-wrap: nowrap; /* запрещаем перенос */
+}
+
+@media (max-width: 480px) {
+  .count-circle {
+    width: 60px; /* уменьшаем круги, чтобы влезли */
+    padding: 6px;
+  }
+
+  .count-num {
+    font-size: 24px; /* уменьшаем цифры */
+  }
+
+  .count-label {
+    font-size: 14px; /* уменьшаем подпись */
+  }
 }
 .count-circle{
   flex: 1 1 110px;

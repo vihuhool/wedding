@@ -167,6 +167,7 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
   gap: var(--gap);
   flex-wrap: nowrap;
 }
+
 .count-circle{
   flex: 0 0 calc((100% - 3*var(--gap)) / 4); /* четверть строки */
   width: auto;           /* ← больше НЕ фиксируем ширину */
@@ -190,6 +191,25 @@ h3, legend{ font-size: clamp(24px, 5.2vw, 42px); }
   letter-spacing:.3px;
   margin-top:2px;
   font-size: clamp(11px, 3.6vw, 16px);
+}
+
+/* просторнее на десктопе */
+@media (min-width: 900px){
+  .countdown{ padding: 28px 32px; }
+  .timer-wrapper{
+    --gap: 28px;
+    justify-content: space-evenly;
+    padding: 0 8px;
+  }
+  .count-circle{ flex: 0 0 110px; width:110px; }
+  .count-num{ font-size: 36px; }
+  .count-label{ font-size: 18px; }
+}
+@media (min-width: 1200px){
+  .timer-wrapper{ --gap: 40px; }
+  .count-circle{ flex: 0 0 130px; width:130px; }
+  .count-num{ font-size: 40px; }
+  .count-label{ font-size: 20px; }
 }
 
 /* =========================
